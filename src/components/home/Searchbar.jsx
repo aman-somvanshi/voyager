@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the CSS for styling
+// import './Searchbar.css'; // Your existing CSS
 import './Searchbar.css'; // Your existing CSS
 import QuoteChanger from './QuoteChanger';
 

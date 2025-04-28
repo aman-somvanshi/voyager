@@ -1,10 +1,10 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-// import './App.css'
-import Transport from './Transport'
-import SearchBar from './Searchbar'
-import More from './More'
+import './Home.css';
+import Transport from './Transport';
+import SearchBar from './Searchbar';
+import More from './More';
 function Home() {
 
   return (
