@@ -3,7 +3,7 @@
     border-radius: 17px; /* Keep the border radius */
     margin-top: 20px;
     height: 12rem;
-    width:67rem;
+    width:83.2rem;
     margin-left: 2.3rem;
     margin-right:2.5rem;
     border: none; /* Remove the border */
@@ -25,7 +25,7 @@
     display: flex; /* Make the inputs container a flexbox */
     gap: 6px; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
     /* No need for padding here, handled in parent */
-    width: 65rem;
+    width: 80.5rem;
     margin-left: 1rem;
     height:3rem;
     justify-content:flex-end; 
@@ -55,9 +55,8 @@
 
 }
 .btn-click{
-  border-color: #dc3545; /* Bootstrap's $danger color */
   border-radius: 50rem; /* Creates the pill shape */
-  background-color: #dc3545; /* Outline style has a transparent background */
+  border: none;
   color: white;
   background-color:#dc3545;
   border-color: #dc3545;

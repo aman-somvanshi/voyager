@@ -5,6 +5,7 @@ import './Home.css';
 import Transport from './Transport';
 import SearchBar from './Searchbar';
 import More from './More';
+import Cards1 from './Cards1/cards1';
 function Home() {
 
   return (
@@ -17,6 +18,9 @@ function Home() {
    </div>
    <div className="more-wrapper">
    <More/>
+   </div>
+   <div>
+    <Cards1 className="card-wrapper"/>
    </div>
    </div>
   
