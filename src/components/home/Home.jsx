@@ -11,7 +11,7 @@ import {BrowserRouter} from 'react-router-dom';
 function Home() {
 
   return (
-    <BrowserRouter>
+    <>
       <div className="app-container" style={{fontFamily : "Roboto"}}>
         <div className="transport-wrapper">
           <Transport/>
@@ -29,8 +29,7 @@ function Home() {
           <Footer ></Footer>
         </div>
       </div>
-    </BrowserRouter>
-  
+  </>
   );
 }
 
