@@ -18,7 +18,7 @@ const More = () => {
 
   return (
     <div>
-      <p className="moretext">Do More With FixTrip</p>
+      <p className="moretext">Do More With Voyager</p>
       <div className="morecontainer">
         {features.map((feature, index) => (
           <div key={index} className="feature-item">

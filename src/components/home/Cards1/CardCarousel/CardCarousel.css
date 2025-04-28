@@ -1,6 +1,6 @@
 /* Carousel Container */
 .card-carousel-container {
-    width: 88rem;
+    width: 78rem;
     /* margin-left:rem; */
     padding: 20px 8px;
     box-sizing: border-box;
@@ -9,7 +9,7 @@
   
   .card-carousel-title {
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: bolder;
     margin-top: 16px;
     color: #1a1a1a;
     margin-left:2.9rem;
