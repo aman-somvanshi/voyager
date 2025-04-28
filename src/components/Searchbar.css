@@ -1,0 +1,69 @@
+.searchcontainer{
+    background-color: white; /* White background */
+    border-radius: 17px; /* Keep the border radius */
+    margin-top: 20px;
+    height: 12rem;
+    width:67rem;
+    margin-left: 2.3rem;
+    margin-right:2.5rem;
+    border: none; /* Remove the border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced box shadow */
+}
+.para{
+    margin-left: 19rem;
+    font-size: 1rem;
+}
+.button-group {
+    display: flex; /* Make button group a flexbox */
+    align-items: center;
+  }
+.inputcontainer{
+    display:flex;
+    align-items: center;
+}
+.inputs {
+    display: flex; /* Make the inputs container a flexbox */
+    gap: 6px; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
+    /* No need for padding here, handled in parent */
+    width: 65rem;
+    margin-left: 1rem;
+    height:3rem;
+    justify-content:flex-end; 
+  }
+  
+  .mt-0 {
+      margin-top: 0; /* Override Bootstrap's mt-0 if needed */
+  }
+
+  .btn{
+    display: flex;
+    margin-left:1.5rem;
+    size: 70rem;
+  }
+
+  .inputs input{
+    border: 1px solid black;
+  }
+.date{
+    display: flex; /* Make the inputs container a flexbox */
+    gap: 6px; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
+    /* No need for padding here, handled in parent */
+    width: 10rem;
+    height: 3rem;
+    border-radius: 5px;
+
+}
+.btn-click{
+  border-color: #dc3545; /* Bootstrap's $danger color */
+  border-radius: 50rem; /* Creates the pill shape */
+  background-color: #dc3545; /* Outline style has a transparent background */
+  color: white;
+  background-color:#dc3545;
+  border-color: #dc3545;
+}
+.btn-click:hover {
+  color: #fff; /* White text on hover */
+  background-color: #dc3545; /* Bootstrap's $danger background on hover */
+  border-color: #dc3545; /* Maintain border color on hover */
+}
+/* ... other CSS rules ... */

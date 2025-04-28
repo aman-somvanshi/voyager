@@ -1,0 +1,35 @@
+.tcontainer {
+    padding-left: 3rem;
+    margin-top: -12rem;
+  }
+  
+  .transport-icons {
+    display: flex;
+    gap: 60px;
+    list-style-type: none;
+    padding: 0; /* Remove default list padding */
+    margin: 0; /* Remove default list margin */
+    align-items: center;
+  }
+  .transport-icons li {
+    display: flex; /* Make list items flex containers */
+    align-items: center; /* Vertically align icon and span */
+  }
+  .transport-icons a {
+    display: flex; /* Make list items flex containers */
+    align-items: center; /* Vertically align icon and span */
+    text-decoration: underline;
+    color:black;
+  }
+  .transport-icon {
+    font-size: 3rem;
+    cursor: pointer;
+    margin-right: 5px; /* Add some spacing between the icon and text */
+    color: black;
+  }
+  .right-aligned-text{
+   margin-left: 19rem;
+   font-size: 1.1rem;
+   color: black;
+  }
+

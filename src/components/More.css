@@ -1,0 +1,43 @@
+.moretext{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin:1.2rem 2.8rem;
+}
+
+.morecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white; /* White background */
+    border-radius: 17px; /* rounded borders */
+    height: 8rem;
+    margin-left: 2rem;
+    margin-right:2.5rem;
+    border: none; /* Remove the border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /*box shadow */
+    padding:0.1rem;
+}
+.feature-item{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5rem;
+}
+.moreicons{
+    font-size: 2.5rem;
+    cursor: pointer;/* Add some spacing between the icon and text */
+    color: black;
+  }
+  .icon-text {
+    font-size: 1rem;
+    text-align: center;
+    color: #333; /* Optional: Style the text color */
+  }
+  .morecontainer > .feature-item:not(:last-child) {
+    border-right: 1px solid #ccc; /* Vertical line separator */
+    padding-right: 1.5rem; /* Add some space after the line */
+  }
+  
+  .morecontainer > .feature-item:not(:first-child) {
+    padding-left: 1.5rem; /* Add some space before the line */
+  }
