@@ -18,7 +18,7 @@ const More = () => {
 
   return (
     <div>
-      <p className="moretext">Do More With Voyager</p>
+      <p className="moretext">Do More With <img id="Voyager-logo" src="src\assets\Voyager_logo.png" alt="Logo" draggable="false" height="32"/></p>
       <div className="morecontainer">
         {features.map((feature, index) => (
           <div key={index} className="feature-item">
