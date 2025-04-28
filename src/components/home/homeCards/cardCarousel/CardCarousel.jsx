@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Card from './Card';
 
 import './CardCarousel.css';
-import useCarousel from '../card-hooks/useCarousel';
+import useCarousel from '../cardHooks/useCarousel';
 
 const CardCarousel = ({ cards = [], title = 'Featured Cards' }) => {
   const carouselRef = useRef(null);

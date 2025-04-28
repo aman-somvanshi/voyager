@@ -1,5 +1,5 @@
 import React from 'react';
-import CardCarousel from './CardCarousel/CardCarousel';
+import CardCarousel from './cardCarousel/CardCarousel';
 
 const cardData = [
     {
