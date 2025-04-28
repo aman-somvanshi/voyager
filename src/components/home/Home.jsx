@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './Home.css';
@@ -10,6 +10,16 @@ import Footer from "./../footer/FooterMain";
 import {BrowserRouter} from 'react-router-dom';
 function Home() {
 
+  const [flightSearchData, setFlightSearchData] = useState({});
+
+  const handleDataFromFlightSearch = (data) => {
+    setFlightSearchData(data);
+    console.log('Data received from Search:', data);
+    // You can now access individual properties of the data object
+    console.log('From city:', data.toCity);
+    console.log('To city:', data.fromCity);
+  };
+
   return (
     <BrowserRouter>
       <div className="app-container" style={{fontFamily : "Roboto"}}>
@@ -17,7 +27,7 @@ function Home() {
           <Transport/>
         </div>
         <div className="search-wrapper">
-          <SearchBar/>
+          <SearchBar onDataChange={handleDataFromFlightSearch}></SearchBar>
         </div>
         <div className="more-wrapper">
           <More/>
