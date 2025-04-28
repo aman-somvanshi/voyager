@@ -1,0 +1,35 @@
+/* src/components/Footer.css */
+.main-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 20px;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-around;
+  /* Add more layout styles */
+}
+
+.footer-column h3 {
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+}
+
+/* Add more styles as needed */
