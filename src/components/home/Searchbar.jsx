@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the CSS for styling
-// import './Searchbar.css'; // Your existing CSS
 import './Searchbar.css'; // Your existing CSS
 import QuoteChanger from './QuoteChanger';
 
-const SearchBar = () => {
+const SearchBar = ({onDataChange}) => {
+
+  const [fromCity, setFromCity] = useState("");
+  const [toCity, setToCity] = useState("");
   const [departureDate, setDepartureDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
   const [isOneWayActive, setIsOneWayActive] = useState(true); // Initially One Way is active
@@ -17,11 +19,45 @@ const SearchBar = () => {
     setIsRoundTripActive(false);
     // Any other logic for One Way selection
   };
+
   const handleRoundTripClick = () => {
     setIsRoundTripActive(true);
     setIsOneWayActive(false);
     // Any other logic for Round Trip selection
   };
+
+  const handleDepartureDateChange = (date) => {
+    setDepartureDate(date);
+  };
+
+  const handleReturnDateChange = (date) => {
+    handleRoundTripClick();
+    setReturnDate(date);
+  };
+
+  const handleFromCityChange = (event) => {
+    setFromCity(event.target.value);
+  };
+
+  const handleToCityChange = (event) => {
+    setToCity(event.target.value);
+  };
+
+  // const handleAgeChange = (event) => {
+  //   setAge(event.target.value);
+  // };
+  const handleSearch = () => {
+    const formData = {
+      fromCity : fromCity,
+      toCity : toCity,
+      departureDate : departureDate,
+      returnDate : returnDate,
+    };
+
+    onDataChange(formData);
+  };
+  
+
   return (
     <div className="searchcontainer">
       <div className="d-flex justify-content-between gap-3 p-4 mt-0">
@@ -35,13 +71,13 @@ const SearchBar = () => {
       <div className='inputcontainer'>
         <div className="inputs">
           <label htmlFor="fromCity" className="form-label"></label>
-          <input type="text" className="form-control" id="fromCity" placeholder="From"  required/>
+          <input type="text" className="form-control" id="fromCity" placeholder="From" value={fromCity} onChange={handleFromCityChange} required/>
           <label htmlFor="toCity" className="form-label"></label>
-          <input type="text" className="form-control" id="toCity" placeholder="To" required/>
+          <input type="text" className="form-control" id="toCity" placeholder="To" value={toCity} onChange={handleToCityChange} required/>
             <label htmlFor="departure" className="form-label"></label>
             <DatePicker
               selected={departureDate}
-              onChange={(date) => setDepartureDate(date)}
+              onChange={handleDepartureDateChange}
               placeholderText="Departure"
               className="date"
               id="departure"
@@ -49,14 +85,14 @@ const SearchBar = () => {
             <label htmlFor="return" className="form-label"></label>
             <DatePicker
               selected={returnDate}
-              onChange={(date) => setReturnDate(date)}
+              onChange={handleReturnDateChange}
               placeholderText="Return"
               className="date"
               id="return"
             />
           <label htmlFor="travellers" className="form-label"></label>
           <input type="text" className="form-control" id="travellers" placeholder="Traveller & Classes" required/>
-          <button  type="button" className="btn btn-outline-danger button btn-lg">Search</button>
+          <button  type="button" className="btn btn-outline-danger button btn-lg" onClick={handleSearch}>Search</button>
         </div>
       </div>
     </div>
