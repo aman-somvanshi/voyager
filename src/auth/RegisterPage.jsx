@@ -1,63 +1,67 @@
-import Link from "next/link"
-import { Plane } from "lucide-react"
-import RegisterForm from "@/components/register-form"
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import RegisterForm from './components/RegisterForm';
 
-export default function RegisterPage() {
+const RegisterPage = () => {
+  const styles = {
+    body: {
+      background: 'linear-gradient(135deg, #4ca1af, #2c3e50)',
+      minHeight: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px',
+    },
+    container: {
+      background: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: '15px',
+      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      backdropFilter: 'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      border: '1px solid rgba(255, 255, 255, 0.18)',
+      padding: '40px',
+      width: '100%',
+      maxWidth: '400px',
+      textAlign: 'center',
+      marginTop: '3rem',
+    },
+    logo: {
+      fontSize: '2.5rem',
+      fontWeight: 'bold',
+      color: '#fff',
+      marginBottom: '30px',
+      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+    },
+    tagline: {
+      color: '#eee',
+      marginBottom: '25px',
+    },
+    signupText: {
+      color: '#eee',
+      marginTop: '20px',
+      fontSize: '0.9rem',
+    },
+    loginLink: {
+      color: '#ec5b24',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+    },
+  };
+
   return (
-    <div className="flex min-h-screen w-full flex-col bg-gradient-to-br from-orange-50 to-amber-100">
-      <div className="flex h-20 w-full items-center px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <Plane className="h-6 w-6 text-[#ec5b24]" />
-          <span className="text-xl font-bold text-[#ec5b24]">Voyager</span>
-        </Link>
-      </div>
-      <div className="flex flex-1 items-center justify-center">
-        <div className="grid w-full max-w-[1200px] grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12 md:px-6">
-          <div className="flex flex-col justify-center space-y-2">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Start your journey with Voyager
-              </h1>
-              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed">
-                Create an account to discover amazing destinations and book your next adventure with ease.
-              </p>
-            </div>
-            <div className="hidden md:block">
-              <div className="mt-8 rounded-lg bg-white/50 p-6 backdrop-blur-sm">
-                <div className="flex items-start gap-4">
-                  <div className="relative size-10 shrink-0 overflow-hidden rounded-full">
-                    <div className="flex h-full w-full items-center justify-center rounded-full bg-orange-100">
-                      <span className="text-sm font-medium text-[#ec5b24]">MS</span>
-                    </div>
-                  </div>
-                  <div className="grid gap-1">
-                    <p className="text-sm font-medium leading-none">Michael Smith</p>
-                    <p className="text-sm text-gray-500">
-                      "I've been using Voyager for all my business trips. The booking process is seamless and the app
-                      keeps all my travel details organized."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mx-auto flex w-full max-w-md flex-col justify-center space-y-6">
-            <div className="flex flex-col space-y-2 text-center">
-              <h2 className="text-2xl font-bold">Create an account</h2>
-              <p className="text-sm text-gray-500">
-                Enter your details below to create your account and start your journey
-              </p>
-            </div>
-            <RegisterForm />
-            <div className="text-center text-sm">
-              Already have an account?{" "}
-              <Link href="/login" className="font-medium text-[#ec5b24] underline underline-offset-4">
-                Sign in
-              </Link>
-            </div>
-          </div>
-        </div>
+    <div style={styles.body}>
+      <div style={styles.container}>
+        <h1 style={styles.logo}>Voyager</h1>
+        <p style={styles.tagline}>
+          Join our community and explore the world!
+        </p>
+        <RegisterForm />
+        <p style={styles.signupText}>
+          Already have an account? <a href="/login" style={styles.loginLink}>Log in</a>
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default RegisterPage;

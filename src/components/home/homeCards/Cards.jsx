@@ -46,7 +46,7 @@ const cardData = [
     }
   ];
 
-function Cards1(){
+function Cards(){
 
     return (
     <>
@@ -60,4 +60,4 @@ function Cards1(){
     )
 }
 
-export default Cards1;
+export default Cards;
