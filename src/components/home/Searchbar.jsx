@@ -6,7 +6,7 @@ import QuoteChanger from './QuoteChanger';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const SearchBar = ({onDataChange}) => {
+const SearchBar = () => {
 
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");

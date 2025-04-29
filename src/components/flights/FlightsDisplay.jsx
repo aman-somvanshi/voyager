@@ -1,36 +1,20 @@
-const allFlightsList = [
-    {
-      fromCity: "Chennai",
-      toCity: "Mumbai",
-      deptDate: "2025-05-15",
-      departureTime: "08:00",
-      landingTime: "10:00",
-      price: 4500,
-      airlineName: "IndiGo",
-      flightTime: "2h 0m",
-    },
-    {
-      fromCity: "Delhi",
-      toCity: "Bangalore",
-      deptDate: "2025-05-20",
-      departureTime: "14:30",
-      landingTime: "17:00",
-      price: 6200,
-      airlineName: "SpiceJet",
-      flightTime: "2h 30m",
-    },
-    {
-      fromCity: "Kolkata",
-      toCity: "Hyderabad",
-      deptDate: "2025-06-01",
-      departureTime: "11:15",
-      landingTime: "13:00",
-      price: 5100,
-      airlineName: "Air India",
-      flightTime: "1h 45m",
-    },
-  ];
-  
+import FlightSearch from './FlightSearch'
 
-  
-  export default allFlightsList;
+function FlightsDisplay() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl font-semibold text-gray-900">Flight Booking</h1>
+        </div>
+      </header>
+      <main>
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <FlightSearch />
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default FlightsDisplay

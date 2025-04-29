@@ -1,4 +1,3 @@
-
 import NavBar from "./components/NavBar.jsx"
 import Home from "./components/home/Home.jsx"
 import './App.css'
@@ -19,7 +18,6 @@ const MainLayout = () => (
     <Outlet /> {/* This is where the child routes will be rendered */}
   </>
 );
-
 
 function App() {
   return (
