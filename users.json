@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "john.doe@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "email": "jane.smith@example.com",
+      "password": "securepass456"
+    },
+    {
+      "id": "3",
+      "email": "robert.jones@test.com",
+      "password": "testpassword789"
+    },
+    {
+      "id": "4",
+      "email": "alice.brown@email.com",
+      "password": "alice123"
+    },
+    {
+      "id": "5",
+      "email": "bob.wilson@domain.com",
+      "password": "bobpass456"
+    },
+    {
+      "id": "6",
+      "email": "shrish@gmail.com",
+      "password": "shrish1234"
+    },
+    {
+      "id": "7",
+      "email": "thanuja@gmail.com",
+      "password": "thanuja1234"
+    },
+    {
+      "id": "8",
+      "email": "ap@police.com",
+      "password": "ap@police.com"
+    },
+    {
+      "id": "9",
+      "email": "abhinav@gmail.com",
+      "password": "abhinav123"
+    },
+    {
+      "id": "10",
+      "email": "john.doe@gmail.com",
+      "password": "password123"
+    }
+  ]
+}
