@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../authContext';
+
 
 const RegisterForm = () => {
   // const [username, setUsername] = useState('');
@@ -7,6 +10,9 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
+  const { register } = useAuth();
 
   const styles = {
     formGroup: {
@@ -51,36 +57,36 @@ const RegisterForm = () => {
     },
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError(''); 
+    setSuccess('');
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
 
-    console.log('Registration submitted:', { username, email, password });
-
-    // setUsername('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
+    try {
+      const newUser = await register(email, password); // Call the register function
+      if (newUser) {
+        setSuccess('Registration successful! You are now logged in.');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        navigate('/home'); // Redirect to home or dashboard
+      } else {
+        // The register function in authContext.js should handle setting the error state.
+        //  We don't need to do it here, but we could add a generic error message
+        setError('Registration failed.');
+      }
+    } catch (err) {
+      setError(err.message || 'An unexpected error occurred.'); // Display error from context
+      console.error('Error registering user:', err);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <div style={styles.formGroup}>
-        <label htmlFor="username" style={styles.label}>Username</label>
-        <input
-          type="text"
-          id="username"
-          style={styles.input}
-          placeholder="Choose a username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div> */}
       <div style={styles.formGroup}>
         <label htmlFor="email" style={styles.label}>Email</label>
         <input
@@ -126,6 +132,7 @@ const RegisterForm = () => {
         Register
       </button>
       {error && <p style={styles.error}>{error}</p>}
+      {success && <p style={styles.success}>{success}</p>}
     </form>
   );
 };

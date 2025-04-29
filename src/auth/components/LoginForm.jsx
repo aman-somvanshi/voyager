@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth } from '../authContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const { login, error } = useAuth();
+  const navigate = useNavigate();
   const styles = {
     formGroup: {
       marginBottom: '20px',
@@ -50,9 +53,14 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Login submitted:', { email, password });
-    setEmail('');
-    setPassword('');
+    const isAuthenticated = login(email, password);
+    if (isAuthenticated) {
+      navigate("/home")
+      console.log('Login successful!');
+      // Example: You might want to use react-router-dom for navigation here
+    } else {
+      console.log('Login failed.');
+    }
   };
 
   return (

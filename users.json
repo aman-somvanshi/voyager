@@ -1,4 +1,5 @@
-[
+{
+  "users": [
     {
       "id": "1",
       "email": "john.doe@example.com",
@@ -23,6 +24,26 @@
       "id": "5",
       "email": "bob.wilson@domain.com",
       "password": "bobpass456"
+    },
+    {
+      "id": "6",
+      "email": "shrish@gmail.com",
+      "password": "shrish1234"
+    },
+    {
+      "id": "7",
+      "email": "thanuja@gmail.com",
+      "password": "thanuja1234"
+    },
+    {
+      "id": "8",
+      "email": "ap@police.com",
+      "password": "ap@police.com"
+    },
+    {
+      "id": "9",
+      "email": "abhinav@gmail.com",
+      "password": "abhinav123"
     }
   ]
-  
+}

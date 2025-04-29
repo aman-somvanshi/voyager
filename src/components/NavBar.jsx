@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import {faHeadset} from  '@fortawesome/free-solid-svg-icons';
 // import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../auth/authContext';
 
 function NavBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const {logout} = useAuth();
 
   useEffect(() => {
     function handleResize() {
@@ -51,7 +53,8 @@ function NavBar() {
             <a className="nav-link mx-2" style={{fontFamily : "Roboto"}}><b>Customer Support</b><FontAwesomeIcon icon={faHeadset} style={{marginLeft : "6px", height : "15px",  marginBottom : "1px"}}/></a>
           </li>
           <li className="nav-item ms-3">
-          <a className="btn btn-dark btn-rounded" href="/login">Sign in</a>
+          {/* <a className="btn btn-dark btn-rounded" href="/login">Log out</a> */}
+          <button className="btn btn-dark btn-rounded" onClick={logout}>Logout</button>
           </li>
         </ul>
       </div>
