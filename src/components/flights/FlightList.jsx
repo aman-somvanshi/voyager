@@ -3,7 +3,7 @@ import FlightCard from './FlightCard';
 // import { flightData } from '../../data/flightData';
 import SearchBar from '../home/Searchbar';
 
-const response = await fetch("http://localhost:3001/flightData");
+const response = await fetch("http://localhost:3000/flightData");
 const flights = await response.json();
 console.log(flights);
 
