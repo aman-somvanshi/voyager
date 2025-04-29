@@ -41,7 +41,7 @@ const HotelResults = () => {
         });
         return destinationMatch && isAvailable;
     });
-    console.log('filteredHotels in HotelResults:', filteredHotels);
+    // console.log('filteredHotels in HotelResults:', filteredHotels);
 
     return (
         <>

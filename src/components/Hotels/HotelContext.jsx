@@ -17,7 +17,7 @@ export const HotelProvider = ({ children }) => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log('Data fetched from JSON Server:', data);
+                // console.log('Data fetched from JSON Server:', data);
                 setHotels(data);
                 setLoading(false);
             } catch (e) {

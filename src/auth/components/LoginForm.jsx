@@ -57,10 +57,10 @@ const LoginForm = () => {
     const isAuthenticated = login(email, password);
     if (isAuthenticated) {
       navigate("/home")
-      console.log('Login successful!');
+      // console.log('Login successful!');
       // Example: You might want to use react-router-dom for navigation here
     } else {
-      console.log('Login failed.');
+      // console.log('Login failed.');
     }
   };
 
