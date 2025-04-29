@@ -31,4 +31,6 @@ const allFlightsList = [
     },
   ];
   
-//   export default flightData;
+
+  
+  export default allFlightsList;

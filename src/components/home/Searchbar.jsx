@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Import the CSS for styling
-import './Searchbar.css'; // Your existing CSS
+import 'react-datepicker/dist/react-datepicker.css';
+import './Searchbar.css';
 import QuoteChanger from './QuoteChanger';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = ({onDataChange}) => {
 
@@ -10,20 +12,18 @@ const SearchBar = ({onDataChange}) => {
   const [toCity, setToCity] = useState("");
   const [departureDate, setDepartureDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
-  const [isOneWayActive, setIsOneWayActive] = useState(true); // Initially One Way is active
+  const [isOneWayActive, setIsOneWayActive] = useState(true); 
   const [isRoundTripActive, setIsRoundTripActive] = useState(false);
   const quotes=["24*7 Customer Support","Hassle-free-Bookings","Best Flights Offers"];
 
   const handleOneWayClick = () => {
     setIsOneWayActive(true);
     setIsRoundTripActive(false);
-    // Any other logic for One Way selection
   };
 
   const handleRoundTripClick = () => {
     setIsRoundTripActive(true);
     setIsOneWayActive(false);
-    // Any other logic for Round Trip selection
   };
 
   const handleDepartureDateChange = (date) => {
@@ -43,9 +43,8 @@ const SearchBar = ({onDataChange}) => {
     setToCity(event.target.value);
   };
 
-  // const handleAgeChange = (event) => {
-  //   setAge(event.target.value);
-  // };
+  const navigate = useNavigate();
+
   const handleSearch = () => {
     const formData = {
       fromCity : fromCity,
@@ -53,10 +52,8 @@ const SearchBar = ({onDataChange}) => {
       departureDate : departureDate,
       returnDate : returnDate,
     };
-
-    onDataChange(formData);
-  };
-  
+    navigate('/flights', {state: formData});
+  }
 
   return (
     <div className="searchcontainer">

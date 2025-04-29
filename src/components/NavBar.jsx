@@ -31,7 +31,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top bg-light navbar-light ">
       <span className = "container">
-      <a className="navbar-brand" href="#"><img id="Voyager-logo" src="src\assets\Voyager_logo.png" alt="Logo" draggable="false" height="45" /></a>
+      <a className="navbar-brand" href="/home"><img id="Voyager-logo" src="src\assets\Voyager_logo.png" alt="Logo" draggable="false" height="45" /></a>
       <button
         className="navbar-toggler"
         type="button"

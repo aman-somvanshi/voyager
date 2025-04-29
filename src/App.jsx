@@ -9,8 +9,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginPage from './auth/LoginPage.jsx'
 import RegisterPage from './auth/RegisterPage.jsx'
 import HotelPage from "./components/Hotels/HotelPage.jsx";
-import HotelSearch from './components/Hotels/HotelSearch.jsx'
-import Transport from './components/home/Transport.jsx'
+import HotelSearch from './components/Hotels/HotelSearch.jsx';
+import Transport from './components/home/Transport.jsx';
+import FlightsPage from './components/flights/FlightsList.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path='/signup' element={<RegisterPage/>}></Route> 
         <Route path='/hotel' element={<HotelPage/>}></Route> 
+        <Route path='/flights' element={<FlightsPage/>}></Route> 
       </Routes>
       </BrowserRouter>
       
