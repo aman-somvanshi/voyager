@@ -30,8 +30,8 @@ const LoginForm = () => {
       boxSizing: 'border-box',
     },
     button: {
-      backgroundColor: '#ec5b24',
-      color: '#fff',
+      backgroundColor: "#dc3545", /* Dark color similar to Bootstrap's btn-dark */
+      color: "#fff",
       border: 'none',
       borderRadius: '8px',
       padding: '12px 25px',
@@ -42,7 +42,8 @@ const LoginForm = () => {
       marginTop: '20px',
     },
     buttonHover: {
-      backgroundColor: '#d34a16',
+      color : "black",
+      backgroundColor: 'white',
     },
     error: {
       color: '#ff4d4d',
@@ -93,7 +94,7 @@ const LoginForm = () => {
         type="submit"
         style={styles.button}
         onMouseOver={(e) => Object.assign(e.target.style, styles.buttonHover)}
-        onMouseOut={(e) => Object.assign(e.target.style, { ...styles.button, ...{ backgroundColor: '#ec5b24' } })}
+        onMouseOut={(e) => Object.assign(e.target.style, { ...styles.button, ...{ backgroundColor: '#dc3545' } })}
       >
         Log In
       </button>

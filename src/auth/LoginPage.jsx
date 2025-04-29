@@ -5,7 +5,7 @@ import LoginForm from './components/LoginForm';
 const LoginPage = () => {
   const styles = {
     body: {
-      background: 'linear-gradient(135deg, #2c3e50, #4ca1af)',
+      background: 'white',
       minHeight: '100vh',
       display: 'flex',
       justifyContent: 'center',
@@ -13,7 +13,7 @@ const LoginPage = () => {
       padding: '20px',
     },
     container: {
-      background: 'rgba(255, 255, 255, 0.1)',
+      background: 'black',
       borderRadius: '15px',
       boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
       backdropFilter: 'blur(8px)',
@@ -52,7 +52,7 @@ const LoginPage = () => {
       fontSize: '0.9rem',
     },
     signupLink: {
-      color: '#ec5b24',
+      color: '#dc3545',
       textDecoration: 'none',
       fontWeight: 'bold',
     },
