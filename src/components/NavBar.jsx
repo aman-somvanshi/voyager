@@ -31,7 +31,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top bg-light navbar-light ">
       <span className = "container">
-      <a className="navbar-brand" href="#"><img id="Voyager-logo" src="src\assets\Voyager_logo.png" alt="Logo" draggable="false" height="45" /></a>
+      <a className="navbar-brand" href="/home"><img id="Voyager-logo" src="src\assets\Voyager_logo.png" alt="Logo" draggable="false" height="45" /></a>
       <button
         className="navbar-toggler"
         type="button"
@@ -51,7 +51,7 @@ function NavBar() {
             <a className="nav-link mx-2" style={{fontFamily : "Roboto"}}><b>Customer Support</b><FontAwesomeIcon icon={faHeadset} style={{marginLeft : "6px", height : "15px",  marginBottom : "1px"}}/></a>
           </li>
           <li className="nav-item ms-3">
-          <a className="btn btn-dark btn-rounded" href="#!">Sign in</a>
+          <a className="btn btn-dark btn-rounded" href="/login">Sign in</a>
           </li>
         </ul>
       </div>
