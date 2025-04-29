@@ -1,4 +1,4 @@
-ReadMoreLess.css
+/* ReadMoreLess.css */
 
 .read-more-inline {
   background: none;
@@ -16,16 +16,16 @@ ReadMoreLess.css
 }
 
 /* Style for the Read Less button (if you want specific styling) */
-#Footerbutton {
+button {
   background: none;
   border: none;
   color: blue;
   cursor: pointer;
   padding: 5px 0;
   font-weight: bold;
-  margin-top: 1em; 
+  margin-top: 1em; /* Add some space above the button */
 }
 
-#Footerbutton:hover {
+button:hover {
   text-decoration: underline;
 }
