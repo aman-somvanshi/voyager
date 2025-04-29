@@ -1,16 +1,26 @@
-import FlightCard from './FlightCard'
+import React from 'react';
+import FlightCard from './FlightCard';
+// import { flightData } from '../../data/flightData';
+import SearchBar from '../home/Searchbar';
 
-const FlightList = ({ flights }) => {
+const response = await fetch("http://localhost:3001/flightData");
+const flights = await response.json();
+console.log(flights);
+
+function FlightList() {
   return (
-    <div className="space-y-6">
-      {flights.map((flight) => (
-        <FlightCard 
-          key={flight.id} 
-          flight={flight} 
-        />
-      ))}
-    </div>
-  )
+
+    <>
+       <div style={{ position:"relative",marginTop:"5rem"}}>
+        <SearchBar />
+        </div>
+        <div style={{marginTop: "2rem"}}>
+        {flights.map((flight) => (
+            <FlightCard key={flight.id} flightData={flight} />
+        ))}
+        </div>
+    </>
+  );
 }
 
-export default FlightList
+export default FlightList;

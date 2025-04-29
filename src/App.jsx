@@ -6,10 +6,8 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import LoginPage from './auth/LoginPage.jsx'
 import RegisterPage from './auth/RegisterPage.jsx'
 import HotelPage from "./components/Hotels/HotelPage.jsx";
-import HotelSearch from './components/Hotels/HotelSearch.jsx';
-import Transport from './components/home/Transport.jsx';
-import FlightsPage from './components/flights/FlightsList.jsx';
 import { AuthProvider } from './auth/authContext.jsx'
+import FlightList from "./components/flights/FlightList.jsx"
 
 // Layout component
 const MainLayout = () => (
@@ -33,7 +31,7 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route path='/home' element={<Home/>}></Route>
                 <Route path='/hotel' element={<HotelPage/>}></Route>
-                <Route path='/flights' element={<FlightsPage/>}></Route>
+                <Route path='/flights' element={<FlightList/>}></Route>
               </Route>
             </Routes>
         </AuthProvider>

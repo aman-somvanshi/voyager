@@ -1,0 +1,143 @@
+.flight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+  
+  .airline-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .airline-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 4px;
+  }
+  
+  .airline-name {
+    font-weight: bold;
+    margin-right: 4px;
+  }
+  
+  .flight-number {
+    color: #757575;
+    font-size: 0.9em;
+    margin-right: 10px;
+  }
+  
+  .free-meal-tag,
+  .second-fastest-tag,
+  .recommended-tag {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-left: 6px;
+  }
+  
+  .second-fastest-tag {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .free-meal-tag {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .recommended-tag {
+    background-color: #cce5ff;
+    color: #004085;
+  }
+  
+  .departure-info,
+  .duration-info,
+  .arrival-info {
+    text-align: center;
+  }
+  
+  .departure-time,
+  .arrival-time {
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  
+  .airport-code {
+    color: #757575;
+    font-size: 0.9em;
+  }
+  
+  .duration {
+    font-weight: 500;
+  }
+  
+  .stops {
+    color: #2e7d32;
+    font-size: 0.9em;
+  }
+  
+  .next-day {
+    color: #d32f2f;
+    font-size: 0.8em;
+  }
+  
+  .price-info {
+    text-align: right;
+  }
+  
+  .price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #1976d2;
+  }
+  
+  .discount {
+    color: #d32f2f;
+    font-size: 0.8em;
+  }
+  
+  .booking-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .book-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .lock-price {
+    display: flex;
+    align-items: center;
+    color: #757575;
+    font-size: 0.8em;
+    margin-bottom: 4px;
+  }
+  
+  .lock-icon {
+    margin-right: 4px;
+  }
+  
+  .flight-details-button {
+    background: none;
+    border: none;
+    color: #1976d2;
+    cursor: pointer;
+    font-size: 0.9em;
+  }

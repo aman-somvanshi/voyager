@@ -44,6 +44,11 @@
       "id": "9",
       "email": "abhinav@gmail.com",
       "password": "abhinav123"
+    },
+    {
+      "id": "10",
+      "email": "john.doe@gmail.com",
+      "password": "password123"
     }
   ]
 }
