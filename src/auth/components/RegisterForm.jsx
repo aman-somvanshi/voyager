@@ -36,7 +36,7 @@ const RegisterForm = () => {
       boxSizing: 'border-box',
     },
     button: {
-      backgroundColor: '#ec5b24',
+      backgroundColor: '#dc3545',
       color: '#fff',
       border: 'none',
       borderRadius: '8px',
@@ -48,7 +48,8 @@ const RegisterForm = () => {
       marginTop: '20px',
     },
     buttonHover: {
-      backgroundColor: '#d34a16',
+      backgroundColor: 'white',
+      color:"black"
     },
     error: {
       color: '#ff4d4d',
@@ -127,7 +128,7 @@ const RegisterForm = () => {
         type="submit"
         style={styles.button}
         onMouseOver={(e) => Object.assign(e.target.style, styles.buttonHover)}
-        onMouseOut={(e) => Object.assign(e.target.style, { ...styles.button, ...{ backgroundColor: '#ec5b24' } })}
+        onMouseOut={(e) => Object.assign(e.target.style, { ...styles.button, ...{ backgroundColor: '#dc3545' } })}
       >
         Register
       </button>

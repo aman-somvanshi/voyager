@@ -5,7 +5,7 @@ import RegisterForm from './components/RegisterForm';
 const RegisterPage = () => {
   const styles = {
     body: {
-      background: 'linear-gradient(135deg, #4ca1af, #2c3e50)',
+      background: 'white',
       minHeight: '100vh',
       display: 'flex',
       justifyContent: 'center',
@@ -13,7 +13,7 @@ const RegisterPage = () => {
       padding: '20px',
     },
     container: {
-      background: 'rgba(255, 255, 255, 0.1)',
+      background: 'black',
       borderRadius: '15px',
       boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
       backdropFilter: 'blur(8px)',
@@ -42,7 +42,7 @@ const RegisterPage = () => {
       fontSize: '0.9rem',
     },
     loginLink: {
-      color: '#ec5b24',
+      color: '#dc3545',
       textDecoration: 'none',
       fontWeight: 'bold',
     },
