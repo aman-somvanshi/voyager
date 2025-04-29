@@ -10,7 +10,7 @@ import HotelSearch from './components/Hotels/HotelSearch.jsx';
 import Transport from './components/home/Transport.jsx';
 import HotelResults from '../src/components/Hotels/HotelResults.jsx';
 import { HotelProvider } from '../src/components/Hotels/HotelContext.jsx';
-import { BrowserRouter,Routes,Route} from 'react-router-dom'
+// import { BrowserRouter,Routes,Route} from 'react-router-dom'
 
 import { AuthProvider } from './auth/authContext.jsx'
 import FlightList from "./components/flights/FlightList.jsx"
@@ -47,9 +47,9 @@ function App() {
         </AuthProvider>
       </BrowserRouter>
             
-                <Routes>
+                {/* <Routes>
                     
-                </Routes>
+                </Routes> */}
             
     </>
   )
