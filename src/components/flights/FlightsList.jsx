@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import React from 'react';
+// import flightData from './flightData'; // Assuming flightData.js is in the same directory
 
 function FlightsList() {
   const allFlightsList = [
