@@ -3,7 +3,8 @@
     width:100%;
    } 
   .transport-wrapper{
-    margin-top: 18rem;
+    position:relative;
+    margin-top: 10rem;
   }
   
   .search-wrapper {

@@ -1,6 +1,7 @@
 .tcontainer {
     padding-left: 3rem;
-    margin-top: -12rem;
+    position:relative;
+    margin-top: 10rem;
   }
   
   .transport-icons {
@@ -29,8 +30,8 @@
   }
   .right-aligned-text{
    margin-left: 27rem;
-   font-size: 1.1rem;
+   font-size:large;
    color: black;
-
+   font-weight: bolder;
   }
 

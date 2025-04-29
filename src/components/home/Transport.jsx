@@ -4,7 +4,7 @@ import { faTrain, faPlaneUp,faBus, faHotel} from '@fortawesome/free-solid-svg-ic
 import './Transport.css';  //CSS File
 
 
-const Transport = () => {
+const Transport = ({text}) => {
     return (
 // Transport Component Just After navbar
     <div className="tcontainer">
@@ -13,7 +13,7 @@ const Transport = () => {
         <a href="#"><li><FontAwesomeIcon icon={faHotel} className="transport-icon" /><span>Hotels</span></li></a> {/* Using FontAwesome Icons*/}
         <a href="#"><li><FontAwesomeIcon icon={faTrain} className="transport-icon" /><span>Trains</span> </li></a>
         <a href="#"><li><FontAwesomeIcon icon={faBus} className="transport-icon" /><span>Buses</span></li></a>
-        <li className="right-aligned-text">Flights Booking</li>  {/*hardcoded*/}
+        <li className="right-aligned-text">{text}</li>  {/*hardcoded*/}
      </ul>
     </div>);
 }

@@ -1,0 +1,25 @@
+.searchHotelc{
+    background-color: white; /* White background */
+    border-radius: 17px; /* Keep the border radius */
+    margin-top: 20px;
+    height: 8rem;
+    width:75rem;
+    margin-left: 2.3rem;
+    margin-right:2.5rem;
+    border: none; /* Remove the border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced box shadow */
+}
+.inputcontainer{
+    display:flex;
+    align-items: center;
+}
+.inputs {
+    display: flex; /* Make the inputs container a flexbox */
+    gap: 6px; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
+    /* No need for padding here, handled in parent */
+    width: 73rem;
+    margin-left: 1rem;
+    margin-top: 2.5rem;
+    height:3rem;
+    justify-content:flex-end; 
+}

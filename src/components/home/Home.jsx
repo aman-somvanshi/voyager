@@ -50,7 +50,7 @@ function Home() {
     <>
       <div className="app-container" style={{fontFamily : "Roboto"}}>
         <div className="transport-wrapper">
-          <Transport/>
+          <Transport text={"Flight Booking"}/>
         </div>
         <div className="search-wrapper">
           <SearchBar onDataChange={handleDataFromFlightSearch}></SearchBar>
