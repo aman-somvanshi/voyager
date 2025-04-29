@@ -7,7 +7,6 @@ const Hotel = () => {
       <>
       <Transport text={"Hotel Booking"}/>
       <HotelSearch/>
-      {/* <More/> */}
       <Cards1/>
       </>
      );

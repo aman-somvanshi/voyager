@@ -1,35 +1,194 @@
-/* src/components/Footer.css */
 .main-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 30px 20px;
+  background-color: #f8f9fa;
+  color: #09090a;
+  padding: 20px 20px;
+  text-align: left;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .footer-columns {
   display: flex;
   justify-content: space-around;
-  /* Add more layout styles */
 }
 
 .footer-column h3 {
-  color: #eee;
-  margin-bottom: 10px;
+  color: #000;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1.2;
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
+  white-space: nowrap;
+  margin-bottom: 10px;
 }
 
 .footer-column ul li a {
-  color: #ccc;
+  color: #6c757d;
   text-decoration: none;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 10px; /* Added right margin */
+}
+
+.footer-column ul li a:hover {
+  color: #007bff;
 }
 
 .footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #555;
+  text-align: left;
+  padding-top: 10px;
+  border-top: 1px solid #1c1c1d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8em;
+  color: #6c757d;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
-/* Add more styles as needed */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.important-links {
+  margin-top: 10px;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.important-links h3 {
+  margin-bottom: 10px;
+  color: #6c757d;
+  font-size: 1em;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.important-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.important-links ul li {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  line-height: 1.4;
+  flex: 0 0 auto;
+}
+
+.important-links ul li a {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 400;
+  white-space: normal;
+  line-height: 1.4;
+  display: inline-block;
+  margin-right: 10px; /* Added right margin */
+}
+
+.important-links ul li a:hover {
+  color: #0056b3;
+}
+
+.footer-bottom ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.footer-bottom a {
+  color: #6c757d;
+  text-decoration: none;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-right: 10px; /* Added right margin */
+}
+
+.footer-bottom a:hover {
+  color: #007bff;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduce gap between sections */
+  align-items: center;
+  padding-top: 5px; /* Reduce top padding */
+  border-top: 1px solid #dee2e6;
+  font-size: 0.8em;
+  color: #6c757d;
+  white-space: nowrap;
+  line-height: 1.2;
+
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 10px; /* Reduce gap */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2px; /* Reduce bottom margin */
+}
+
+.copyright-info {
+  font-size: 0.75em; /* Slightly reduce font size */
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2px; /* Reduce bottom margin */
+}
+
+
+.footer-separator {
+  position: relative; /* To allow absolute positioning of the logo */
+  margin-bottom: 20px; /* Adjust spacing as needed */
+}
+
+.footer-separator hr {
+  border: 0;
+  border-top: 1px solid black; /* Changed #ccc to black */
+  width: 100%;
+  margin: 0;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the logo both horizontally and vertically */
+  background-color: white; /* To cover the line behind the logo - ADJUST IF YOUR BACKGROUND IS DIFFERENT */
+  padding: 0 15px; /* Adjust padding around the logo */
+  z-index: 1; /* Ensure the logo is above the line */
+}
+
+.separator-logo {
+  height: 30px; /* Adjust the logo height as needed */
+  /* You might need to adjust width or add other styles */
+}

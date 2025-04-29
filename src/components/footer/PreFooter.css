@@ -6,10 +6,11 @@
 }
 
 .pre-footer-container {
-  max-width: 1200px;
+   max-width: 1230px;
   margin: 0 auto;
   text-align: left; /* Set default text alignment for the container */
   font-family: 'Open Sans', sans-serif; /* Apply the similar font */
+
 }
 
 .pre-footer h2 {

@@ -39,7 +39,7 @@ function ReadMoreLess({ content, initialParagraphsToShow = 1, isParagraphs = fal
     <div>
       {displayedContent()}
       {shouldShowReadLess && (
-        <button onClick={toggleExpansion} aria-expanded={isExpanded} id='Footerbutton'>Read Less</button>
+        <button onClick={toggleExpansion} aria-expanded={isExpanded}>Read Less</button>
       )}
     </div>
   );

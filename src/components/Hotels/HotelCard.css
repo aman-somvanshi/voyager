@@ -1,0 +1,79 @@
+/* src/components/HotelCard.css */
+.hotel-card-container {
+    display: flex; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    width: 100%; /* Make card take full width of its container */
+    max-width: 600px; /* Limit the maximum width if needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    align-items: center; /* Vertically center image and details */
+    padding: 10px;
+    background-color: white;
+}
+
+.hotel-image-container {
+    flex: 1; /* Image container takes up 1 part of the available space */
+    max-width: 400px; /* Set a maximum width for the image */
+    height: auto;
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.hotel-image {
+    width: 100%; /* Make image fill its container */
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    border-radius: 8px 0 0 8px;
+}
+
+.hotel-details-container {
+    flex: 2; /* Details container takes up 2 parts of the available space */
+    display: flex;
+    flex-direction: column; /* Stack hotel info and button vertically */
+    justify-content: space-between; /* Space them out */
+    align-items: flex-start;
+    padding-left: 10px;
+    height: 100%;
+}
+
+.hotel-info {
+    margin-bottom: 10px;
+}
+
+.hotel-name {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.hotel-location {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.hotel-price {
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.book-now-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Push button to the right */
+}
+
+.book-now-button:hover {
+    background-color: #0056b3;
+}
+
+.hotel-price {
+font-size: 1em;
+}
