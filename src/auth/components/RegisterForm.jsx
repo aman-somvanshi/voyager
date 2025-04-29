@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterForm = () => {
-  const [username, setUsername] = useState('');
+  // const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -61,7 +61,7 @@ const RegisterForm = () => {
 
     console.log('Registration submitted:', { username, email, password });
 
-    setUsername('');
+    // setUsername('');
     setEmail('');
     setPassword('');
     setConfirmPassword('');
@@ -69,7 +69,7 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={styles.formGroup}>
+      {/* <div style={styles.formGroup}>
         <label htmlFor="username" style={styles.label}>Username</label>
         <input
           type="text"
@@ -80,7 +80,7 @@ const RegisterForm = () => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </div>
+      </div> */}
       <div style={styles.formGroup}>
         <label htmlFor="email" style={styles.label}>Email</label>
         <input
