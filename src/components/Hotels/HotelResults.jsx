@@ -4,6 +4,10 @@ import { useLocation } from 'react-router-dom';
 import { HotelContext } from './HotelContext';
 import HotelCard from './HotelCard';
 import NavBar from '../NavBar';
+import SearchBar from '../home/Searchbar';
+import HotelSearch from './HotelSearch';
+import Transport from '../home/Transport';
+import './HotelResults.css';
 
 const HotelResults = () => {
     const location = useLocation();
@@ -46,13 +50,16 @@ const HotelResults = () => {
     return (
         <>
         <NavBar/>
+        <Transport/>
+        <HotelSearch/>
         <div className="hotel-results">
-            <h2>Available Hotels in {searchParams?.destination}</h2>
-            <p>
+            <h2 className="available">Available Hotels in {searchParams?.destination}</h2>
+            {/* <p className='loc'>
                 From {formatDate(searchParams?.checkIn)} to {formatDate(searchParams?.checkOut)} for {searchParams?.guests}
-            </p>
+            </p> */}
+            </div>
             {filteredHotels.length > 0 ? (
-                <ul className="hotel-list">
+                <ul className="hotel-cards-grid">
                     {filteredHotels.map(hotel => (
                        <HotelCard key={hotel.id} hotel={hotel} />
                     ))}
@@ -60,7 +67,6 @@ const HotelResults = () => {
             ) : (
                 <p>No hotels available for the selected dates and destination.</p>
             )}
-        </div>
         </>
     );
 };

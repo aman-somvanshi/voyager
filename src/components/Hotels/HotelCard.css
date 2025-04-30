@@ -1,64 +1,66 @@
 /* src/components/HotelCard.css */
-.hotel-card-container {
-    display: flex; 
+.hotel-cards-grid { /* New container for the grid */
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
+    gap: 20px; /* Space between the cards */
+    padding: 20px; /* Padding around the grid */
+  }
+  
+  .hotel-card-container {
+    display: flex; /* Arrange image and details side by side */
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin-bottom: 15px;
-    width: 100%; /* Make card take full width of its container */
-    max-width: 600px; /* Limit the maximum width if needed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    align-items: center; /* Vertically center image and details */
-    padding: 10px;
+    margin-bottom: 0; /* Remove bottom margin as grid will handle spacing */
+    width: calc(50% - 10px); /* Two cards per row with some spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
-}
-
-.hotel-image-container {
-    flex: 1; /* Image container takes up 1 part of the available space */
-    max-width: 400px; /* Set a maximum width for the image */
-    height: auto;
-    margin-right: 10px; /* Add some space between image and text */
-}
-
-.hotel-image {
-    width: 100%; /* Make image fill its container */
+    overflow: hidden; /* Clip content that goes outside the rounded borders */
+  }
+  
+  .hotel-image-container {
+    width: 50%; /* Take up half of the card's width */
+    height: auto; /* Adjust height based on image aspect ratio */
+  }
+  
+  .hotel-image {
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-    border-radius: 8px 0 0 8px;
-}
-
-.hotel-details-container {
-    flex: 2; /* Details container takes up 2 parts of the available space */
+    object-fit: cover; /* Cover the entire container, potentially cropping */
+    border-radius: 8px 0 0 8px; /* Rounded corners on the left */
+    display: block; /* Prevent extra space below the image */
+  }
+  
+  .hotel-details-container {
     display: flex;
-    flex-direction: column; /* Stack hotel info and button vertically */
-    justify-content: space-between; /* Space them out */
-    align-items: flex-start;
-    padding-left: 10px;
-    height: 100%;
-}
-
-.hotel-info {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    width: 50%; /* Take up the other half of the card's width */
+  }
+  
+  .hotel-info {
     margin-bottom: 10px;
-}
-
-.hotel-name {
-    font-size: 1.4em;
+  }
+  
+  .hotel-name {
+    font-size: 1.2em;
     margin-bottom: 5px;
     color: #333;
-}
-
-.hotel-location {
+  }
+  
+  .hotel-location {
     font-size: 0.9em;
     color: #666;
-    margin-bottom: 5px;
-}
-
-.hotel-price {
-    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .hotel-price {
+    font-size: 1em;
     color: #2c3e50;
     font-weight: bold;
-}
-
-.book-now-button {
+  }
+  
+  .book-now-button {
     background-color: #dc3545;
     color: white;
     padding: 10px 15px;
@@ -67,13 +69,31 @@
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
-    align-self: flex-end; /* Push button to the right */
-}
-
-.book-now-button:hover {
-    background-color: #0056b3;
-}
-
-.hotel-price {
-font-size: 1em;
-}
+    align-self: flex-start; /* Align to the left within its container */
+  }
+  
+  .book-now-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 767px) {
+    .hotel-card-container {
+      flex-direction: column; /* Stack image and details vertically */
+      width: 100%; /* Take full width */
+    }
+  
+    .hotel-image-container {
+      width: 100%;
+      height: 200px; /* Set a fixed height for the image on smaller screens */
+    }
+  
+    .hotel-image {
+      border-radius: 8px 8px 0 0; /* Rounded corners on top */
+    }
+  
+    .hotel-details-container {
+      width: 100%;
+      padding: 15px;
+    }
+  }

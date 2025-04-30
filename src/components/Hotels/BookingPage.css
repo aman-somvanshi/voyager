@@ -1,0 +1,47 @@
+/* src/components/BookingPage.css */
+.booking-page-container {
+    padding: 20px;
+    max-width: 600px;
+    margin-top:4rem;
+  }
+  .hname{
+    font-size: 1.5rem;
+
+  }
+  .booking-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .submit-booking-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-booking-button:hover {
+    background-color: #1e7e34;
+  }

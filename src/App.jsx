@@ -11,6 +11,7 @@ import Transport from './components/home/Transport.jsx' ;
 import HotelResults from '../src/components/Hotels/HotelResults.jsx';
 import { HotelProvider } from '../src/components/Hotels/HotelContext.jsx';
 // import { BrowserRouter,Routes,Route} from 'react-router-dom'
+import BookingPage from "../src/components/Hotels/BookingPage.jsx"
 
 import { AuthProvider } from './auth/authContext.jsx'
 import FlightList from "./components/flights/FlightList.jsx"
@@ -41,6 +42,7 @@ function App() {
                   <Route path='/flights' element={<FlightList/>}></Route>
                   {/* <Route path="/hotel" element={<HotelPage/>} /> */}
                   <Route path="/hotel-results" element={<HotelResults />} />
+                  <Route path="/booking/:id" element={<BookingPage />} />
                 </Route>
               </Routes>
               </HotelProvider>
@@ -51,4 +53,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

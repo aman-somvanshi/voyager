@@ -1,0 +1,9 @@
+.hotel-results{
+    display: flex;
+    align-items: center;
+    margin:2rem 0rem 2rem 29.7rem;
+}
+.available{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}

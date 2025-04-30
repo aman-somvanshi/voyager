@@ -46,12 +46,12 @@
   }
 .date{
     display: flex; /* Make the inputs container a flexbox */
-    gap: 6px; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
+    gap: 6rem; /* Use rem for consistent spacing, equivalent to Bootstrap's gap-3 */
     /* No need for padding here, handled in parent */
-    width: 10rem;
+    width: 12rem;
     height: 3rem;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: white;
 }
 .btn-click{
   border-radius: 50rem; /* Creates the pill shape */
