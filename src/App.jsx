@@ -30,20 +30,26 @@ function App() {
         <AuthProvider>
         <HotelProvider>
             <Routes>
-                <Route path='/' element={<LoginPage />} />
-                <Route path='/login' element={<LoginPage/>}></Route> 
+                <Route path='/' element={<LoginPage />} /> {/* Root path now renders LoginPage */}
+                <Route path='/login' element={<LoginPage/>}></Route> {/* You can keep this for clarity or remove it */}
                 <Route path='/signup' element={<RegisterPage/>}></Route>
 
+                {/* Routes that use the MainLayout */}
                 <Route element={<MainLayout />}>
                   <Route path='/home' element={<Home/>}></Route>
                   <Route path='/hotel' element={<HotelPage/>}></Route>
                   <Route path='/flights' element={<FlightList/>}></Route>
+                  {/* <Route path="/hotel" element={<HotelPage/>} /> */}
                   <Route path="/hotel-results" element={<HotelResults />} />
                 </Route>
               </Routes>
               </HotelProvider>
         </AuthProvider>
       </BrowserRouter>
+            
+                {/* <Routes>
+                    
+                </Routes> */}
             
     </>
   )

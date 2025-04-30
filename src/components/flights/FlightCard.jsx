@@ -23,7 +23,9 @@ function FlightCard({ flightData}) {
         {/* {flightData.secondFastest && <span className="second-fastest-tag">2nd Fastest</span>} */}
         {flightData.recommended && <span className="recommended-tag">Recommended</span>}
       </div>
-
+      <div className="departure-time">
+        <span style={{marginLeft : "5px"}}>{flightData.departureDate}</span>
+      </div>
       <div className="departure-info">
         <span className="departure-time">{flightData.departureTime}</span>
         <span className="airport-code" style={{marginLeft : "5px"}}>{flightData.originCode}</span>

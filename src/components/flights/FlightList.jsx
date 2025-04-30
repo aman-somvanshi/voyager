@@ -52,7 +52,7 @@ function FlightList() {
        <div style={{ position:"relative",marginTop:"2rem"}}>
         <SearchBar />
         </div>
-        <div style={{marginTop: "2rem"}}>
+        <div style={{marginTop: "2rem", marginBottom : "4rem"}}>
         {filteredFlights.map((flight) => (
             <FlightCard key={flight.id} flightData={flight} />
         ))}
