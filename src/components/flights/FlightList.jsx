@@ -11,7 +11,7 @@ function FlightList() {
   const location = useLocation();
   const { state } = location;
 
-  const { fromCity, toCity, departureDate, returnDate } = state || {};
+  const { fromCity, toCity, departureDate, returnDate, Travellers } = state || {};
 
   const formatDateForComparison = (dateString) => {
     try {
@@ -43,7 +43,6 @@ function FlightList() {
       return 'Invalid Date';
     }
   };
-
   return (
     <>
       <div style={{ position:"relative"}}>

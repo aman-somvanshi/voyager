@@ -7,7 +7,7 @@ import LoginPage from './auth/LoginPage.jsx'
 import RegisterPage from './auth/RegisterPage.jsx'
 import HotelPage from "./components/Hotels/HotelPage.jsx";
 import HotelSearch from './components/Hotels/HotelSearch.jsx';
-import Transport from './components/home/Transport.jsx';
+import Transport from './components/home/Transport.jsx' ;
 import HotelResults from '../src/components/Hotels/HotelResults.jsx';
 import { HotelProvider } from '../src/components/Hotels/HotelContext.jsx';
 // import { BrowserRouter,Routes,Route} from 'react-router-dom'
@@ -46,10 +46,6 @@ function App() {
               </HotelProvider>
         </AuthProvider>
       </BrowserRouter>
-            
-                {/* <Routes>
-                    
-                </Routes> */}
             
     </>
   )
