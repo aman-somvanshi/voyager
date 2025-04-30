@@ -12,7 +12,7 @@ export const HotelProvider = ({ children }) => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch('http://localhost:3000/hotels'); // Assuming your JSON Server is running on port 3001
+                const response = await fetch('http://localhost:3001/hotels'); // Assuming your JSON Server is running on port 3001
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
