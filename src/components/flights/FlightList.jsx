@@ -47,7 +47,7 @@ function FlightList() {
   return (
     <>
       <div style={{ position:"relative"}}>
-        <Transport/>
+        <Transport text={"Flight Booking"}/>
         </div>
        <div style={{ position:"relative",marginTop:"2rem"}}>
         <SearchBar />
