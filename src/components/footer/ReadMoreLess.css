@@ -16,7 +16,7 @@
 }
 
 /* Style for the Read Less button (if you want specific styling) */
-button {
+.button-footer {
   background: none;
   border: none;
   color: blue;
@@ -26,6 +26,6 @@ button {
   margin-top: 1em; /* Add some space above the button */
 }
 
-button:hover {
+.button-footer:hover {
   text-decoration: underline;
 }

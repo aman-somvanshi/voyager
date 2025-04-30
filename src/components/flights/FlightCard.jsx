@@ -1,7 +1,7 @@
 import React from 'react';
 import './FlightCard.css'; // Make sure this CSS file exists and has the styles
 
-function FlightCard({ flightData }) {
+function FlightCard({ flightData}) {
   const calculateArrivalTime = () => {
     const [hours, minutes] = flightData.departureTime.split(':').map(Number);
     const totalMinutes = hours * 60 + minutes + flightData.duration;
@@ -20,23 +20,28 @@ function FlightCard({ flightData }) {
         <span className="airline-name">{flightData.airline}</span>
         <span className="flight-number">{flightData.flightNumber}</span>
         {flightData.freeMeal && <span className="free-meal-tag">Free Meal</span>}
-        {flightData.secondFastest && <span className="second-fastest-tag">2nd Fastest</span>}
+        {/* {flightData.secondFastest && <span className="second-fastest-tag">2nd Fastest</span>} */}
         {flightData.recommended && <span className="recommended-tag">Recommended</span>}
       </div>
-
+      <div className="departure-time">
+        <span style={{marginLeft : "5px"}}>{flightData.departureDate}</span>
+      </div>
       <div className="departure-info">
         <span className="departure-time">{flightData.departureTime}</span>
-        <span className="airport-code">{flightData.originCode}</span>
+        <span className="airport-code" style={{marginLeft : "5px"}}>{flightData.originCode}</span>
       </div>
 
       <div className="duration-info">
         <span className="duration">{flightData.formattedDuration}</span>
-        <span className="stops">{flightData.stops === 0 ? 'Non-stop' : `${flightData.stops} Stop${flightData.stops > 1 ? 's' : ''}`}</span>
+      </div>
+
+      <div className="duration-info"  >
+      <span className="stops">{flightData.stops === 0 ? 'Non-stop' : `${flightData.stops} Stop${flightData.stops > 1 ? 's' : ''}`}</span>
       </div>
 
       <div className="arrival-info">
         <span className="arrival-time">{calculateArrivalTime()}</span>
-        <span className="airport-code">{flightData.destinationCode}</span>
+        <span className="airport-code" style={{marginLeft : "5px"}}>{flightData.destinationCode}</span>
         {flightData.nextDay && <span className="next-day">(+1 day)</span>}
       </div>
 
@@ -47,10 +52,6 @@ function FlightCard({ flightData }) {
 
       <div className="booking-actions">
         <button className="book-button">Book</button>
-        <div className="lock-price">
-          <i className="lock-icon">🔒</i> Lock Price @ ₹{flightData.lockPrice}
-        </div>
-        <button className="flight-details-button">Flight Details </button>
       </div>
     </div>
   );

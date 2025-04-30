@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setUsersData(data);
       } catch (err) {
         setError('Failed to load user data.');
