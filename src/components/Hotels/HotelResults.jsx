@@ -1,74 +1,62 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
-// import './HotelResults.css';
 import { HotelContext } from './HotelContext';
 import HotelCard from './HotelCard';
 import NavBar from '../NavBar';
-import SearchBar from '../home/Searchbar';
 import HotelSearch from './HotelSearch';
 import Transport from '../home/Transport';
 import './HotelResults.css';
+import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const HotelResults = () => {
-    const location = useLocation();
-    const { searchParams } = location.state || {};
-    const { hotels, loading, error } = useContext(HotelContext);
+  const { destination, checkInDate, checkOutDate, guests } = useContext(SearchContext);
+  const { hotels, loading, error } = useContext(HotelContext);
 
-    if (loading) {
-        return <div className="hotel-results">Loading hotels...</div>;
-    }
+  if (loading) {
+    return <div className="hotel-results">Loading hotels...</div>;
+  }
 
-    if (error) {
-        return <div className="hotel-results">Error loading hotels: {error}</div>;
-    }
+  if (error) {
+    return <div className="hotel-results">Error loading hotels: {error}</div>;
+  }
 
-    if (!hotels || hotels.length === 0) {
-        return <div className="hotel-results">No hotels available.</div>;
-    }
+  if (!hotels || hotels.length === 0) {
+    return <div className="hotel-results">No hotels available.</div>;
+  }
 
-    const formatDate = (date) => {
-        if (!date) return '';
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(date).toLocaleDateString(undefined, options);
-    };
-
-    const filteredHotels = hotels.filter(hotel => {
-        const destinationMatch = hotel.city.toLowerCase() === (searchParams?.destination?.toLowerCase() || '');
-       
-        const isAvailable = hotel.availability.some(period => {
-            const startDate = new Date(period.startDate);
-            const endDate = new Date(period.endDate);
-            const checkInDate = searchParams?.checkIn ? new Date(searchParams.checkIn) : null;
-            const checkOutDate = searchParams?.checkOut ? new Date(searchParams.checkOut) : null;
-
-            return checkInDate && checkOutDate && checkInDate >= startDate && checkOutDate <= endDate;
-        });
-        return destinationMatch && isAvailable;
+  const filteredHotels = hotels.filter(hotel => {
+    const destinationMatch = hotel.city?.toLowerCase() === (destination?.toLowerCase() || '');
+    const isAvailable = hotel.availability?.some(period => {
+      const startDate = new Date(period.startDate);
+      const endDate = new Date(period.endDate);
+      return checkInDate && checkOutDate && checkInDate >= startDate && checkOutDate <= endDate;
     });
-    // console.log('filteredHotels in HotelResults:', filteredHotels);
+    return destinationMatch && isAvailable;
+  });
 
-    return (
-        <>
-        <NavBar/>
-        <Transport/>
-        <HotelSearch/>
-        <div className="hotel-results">
-            <h2 className="available">Available Hotels in {searchParams?.destination}</h2>
-            {/* <p className='loc'>
-                From {formatDate(searchParams?.checkIn)} to {formatDate(searchParams?.checkOut)} for {searchParams?.guests}
-            </p> */}
-            </div>
-            {filteredHotels.length > 0 ? (
-                <ul className="hotel-cards-grid">
-                    {filteredHotels.map(hotel => (
-                       <HotelCard key={hotel.id} hotel={hotel} />
-                    ))}
-                </ul>
-            ) : (
-                <p>No hotels available for the selected dates and destination.</p>
-            )}
-        </>
-    );
+  return (
+    <>
+      <NavBar />
+      <Transport />
+      <HotelSearch
+        initialDestination={destination}
+        initialCheckIn={checkInDate}
+        initialCheckOut={checkOutDate}
+        initialGuests={guests}
+      />
+      <div className="hotel-results">
+        <h2 className="available">Available Hotels in {destination || 'All Destinations'}</h2>
+      </div>
+      {filteredHotels.length > 0 ? (
+        <ul className="hotel-cards-grid">
+          {filteredHotels.map(hotel => (
+            <HotelCard key={hotel.id} hotel={hotel} />
+          ))}
+        </ul>
+      ) : (
+        <p>No hotels available for the selected dates and destination.</p>
+      )}
+    </>
+  );
 };
 
 export default HotelResults;

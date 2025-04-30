@@ -1,20 +1,18 @@
-import NavBar from "./components/NavBar.jsx"
-import Home from "./components/home/Home.jsx"
-import './App.css'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-// import { Route } from 'lucide-react'
-import LoginPage from './auth/LoginPage.jsx'
-import RegisterPage from './auth/RegisterPage.jsx'
+import NavBar from "./components/NavBar.jsx";
+import Home from "./components/home/Home.jsx";
+import './App.css';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import LoginPage from './auth/LoginPage.jsx';
+import RegisterPage from './auth/RegisterPage.jsx';
 import HotelPage from "./components/Hotels/HotelPage.jsx";
 import HotelSearch from './components/Hotels/HotelSearch.jsx';
-import Transport from './components/home/Transport.jsx' ;
+import Transport from './components/home/Transport.jsx';
 import HotelResults from '../src/components/Hotels/HotelResults.jsx';
 import { HotelProvider } from '../src/components/Hotels/HotelContext.jsx';
-// import { BrowserRouter,Routes,Route} from 'react-router-dom'
-import BookingPage from "../src/components/Hotels/BookingPage.jsx"
-
-import { AuthProvider } from './auth/authContext.jsx'
-import FlightList from "./components/flights/FlightList.jsx"
+import BookingPage from "../src/components/Hotels/BookingPage.jsx";
+import { SearchContextProvider } from '../src/components/Hotels/SearchContext.jsx'; // Import SearchContextProvider
+import { AuthProvider } from './auth/authContext.jsx';
+import FlightList from "./components/flights/FlightList.jsx";
 
 // Layout component
 const MainLayout = () => (
@@ -29,28 +27,28 @@ function App() {
     <>
       <BrowserRouter>
         <AuthProvider>
-        <HotelProvider>
-            <Routes>
+          <HotelProvider> {/* Keep HotelProvider here if it provides hotel data */}
+            <SearchContextProvider> {/* Wrap the routes that need search context */}
+              <Routes>
                 <Route path='/' element={<LoginPage />} /> {/* Root path now renders LoginPage */}
-                <Route path='/login' element={<LoginPage/>}></Route> {/* You can keep this for clarity or remove it */}
-                <Route path='/signup' element={<RegisterPage/>}></Route>
+                <Route path='/login' element={<LoginPage />} /> {/* You can keep this for clarity or remove it */}
+                <Route path='/signup' element={<RegisterPage />} />
 
-                {/* Routes that use the MainLayout */}
+                {/* Routes that use the MainLayout and need search context */}
                 <Route element={<MainLayout />}>
-                  <Route path='/home' element={<Home/>}></Route>
-                  <Route path='/hotel' element={<HotelPage/>}></Route>
-                  <Route path='/flights' element={<FlightList/>}></Route>
-                  {/* <Route path="/hotel" element={<HotelPage/>} /> */}
+                  <Route path='/home' element={<Home />} />
+                  <Route path='/hotel' element={<HotelPage />} /> {/* HotelSearch is inside HotelPage */}
+                  <Route path='/flights' element={<FlightList />} />
                   <Route path="/hotel-results" element={<HotelResults />} />
                   <Route path="/booking/:id" element={<BookingPage />} />
                 </Route>
               </Routes>
-              </HotelProvider>
+            </SearchContextProvider>
+          </HotelProvider>
         </AuthProvider>
       </BrowserRouter>
-            
     </>
-  )
+  );
 }
 
 export default App;
