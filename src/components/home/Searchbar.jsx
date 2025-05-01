@@ -76,7 +76,7 @@ const SearchBar = () => {
       departureDate : departureDate,
       returnDate : returnDate,
       travellers : numberOfTravellers,
-      isRoundTripActive : isRoundTripActive
+      isRoundTripActive : isRoundTripActive//Do using contextapi
     };
     navigate('/flights', {state: formData});
     }
