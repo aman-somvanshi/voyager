@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth } from '../authContext';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const { login, error } = useAuth();
   const navigate = useNavigate();
+  
   const styles = {
     formGroup: {
       marginBottom: '20px',
@@ -48,7 +49,7 @@ const LoginForm = () => {
     error: {
       color: '#ff4d4d',
       marginTop: '10px',
-      fontSize: '0.8rem',
+      fontSize: '1rem',
     },
   };
 
@@ -56,9 +57,7 @@ const LoginForm = () => {
     event.preventDefault();
     const isAuthenticated = login(email, password);
     if (isAuthenticated) {
-      navigate("/home")
-      // console.log('Login successful!');
-      // Example: You might want to use react-router-dom for navigation here
+      navigate("/home")     
     } else {
       // console.log('Login failed.');
     }
@@ -66,6 +65,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {error && <div style={styles.error}>{error}</div>}
       <div style={styles.formGroup}>
         <label htmlFor="email" style={styles.label}>Email</label>
         <input

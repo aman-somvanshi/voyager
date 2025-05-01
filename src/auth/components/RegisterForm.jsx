@@ -5,7 +5,7 @@ import { useAuth } from '../authContext';
 
 
 const RegisterForm = () => {
-  // const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -68,9 +68,10 @@ const RegisterForm = () => {
     }
 
     try {
-      const newUser = await register(email, password); // Call the register function
+      const newUser = await register(name, email, password); // Call the register function
       if (newUser) {
         setSuccess('Registration successful! You are now logged in.');
+        setName('');
         setEmail('');
         setPassword('');
         setConfirmPassword('');
@@ -88,6 +89,18 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div style={styles.formGroup}>
+        <label htmlFor="name" style={styles.label}>Name</label>
+        <input
+          type="text"
+          id="name"
+          style={styles.input}
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
       <div style={styles.formGroup}>
         <label htmlFor="email" style={styles.label}>Email</label>
         <input

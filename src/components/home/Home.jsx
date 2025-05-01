@@ -7,8 +7,12 @@ import SearchBar from './Searchbar';
 import More from './More';
 import Cards from './homeCards/Cards';
 import Footer from "./../footer/FooterMain";
+import { useAuth } from '../../auth/authContext';
 // import FlightsList from "./../flights/FlightsList";
+
 function Home() {
+  
+
   return (
     <>
       <div className="app-container" style={{fontFamily : "Roboto"}}>

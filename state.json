@@ -2,63 +2,75 @@
   "users": [
     {
       "id": "1",
+      "name": "John Doe",
       "email": "john.doe@example.com",
       "password": "password123"
     },
     {
       "id": "2",
+      "name": "Jane Smith",
       "email": "jane.smith@example.com",
       "password": "securepass456"
     },
     {
       "id": "3",
+      "name": "Robert Jones",
       "email": "robert.jones@test.com",
       "password": "testpassword789"
     },
     {
       "id": "4",
+      "name": "Alice Brown",
       "email": "alice.brown@email.com",
       "password": "alice123"
     },
     {
       "id": "5",
+      "name": "Bob Wilson",
       "email": "bob.wilson@domain.com",
       "password": "bobpass456"
     },
     {
       "id": "6",
+      "name": "Shrish",
       "email": "shrish@gmail.com",
       "password": "shrish1234"
     },
     {
       "id": "7",
+      "name": "Thanuja",
       "email": "thanuja@gmail.com",
       "password": "thanuja1234"
     },
     {
       "id": "8",
+      "name": "AP",
       "email": "ap@police.com",
       "password": "ap@police.com"
     },
     {
       "id": "9",
+      "name": "Abhinav",
       "email": "abhinav@gmail.com",
       "password": "abhinav123"
     },
     {
       "id": "10",
-      "email": "john.doe@gmail.com",
-      "password": "password123"
+      "name": "Ramesh singh",
+      "email": "ramesh.singh@gmail.com",
+      "password": "ramesh123"
     },
     {
       "id": "11",
+      "name": "User 123",
       "email": "123@gmail.com",
       "password": "Cogni@123"
     },
     {
       "id": "12",
-      "email": "aditya@gmail.com",
-      "password": "aditya123"
+      "name": "Aman S",
+      "email": "aman@gmail.com",
+      "password": "aman123"
     }
   ],
   "hotels": [

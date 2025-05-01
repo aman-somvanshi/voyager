@@ -2,7 +2,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        // console.log(data);
         setUsersData(data);
       } catch (err) {
         setError('Failed to load user data.');
@@ -32,8 +31,10 @@ export const AuthProvider = ({ children }) => {
 
     // Check for existing session on initial load
     const storedUser = localStorage.getItem('user');
+    console.log("checking in local storage")
     if (storedUser) {
       try {
+        console.log("checking just before setting user")  
         setUser(JSON.parse(storedUser));
       } catch (e) {
         console.error("Error parsing stored user data", e);
@@ -62,9 +63,12 @@ export const AuthProvider = ({ children }) => {
     const foundUser = usersData.find(
       (user) => user.email === email && user.password === password
     );
+    console.log("user is " + user);
+    console.log("foundUser is " + foundUser );
 
     if (foundUser) {
       setUser(foundUser);
+      console.log("After finding " + user);
       setError(null);
       return true;
     } else {
@@ -79,7 +83,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
-  const register = async (email, password) => {
+  const register = async (name, email, password) => {
     try {
         const getUsersResponse = await fetch('http://localhost:3000/users');
         if (!getUsersResponse.ok) {
@@ -93,7 +97,7 @@ export const AuthProvider = ({ children }) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id: nextId, email, password })
+            body: JSON.stringify({ id: nextId, name, email, password })
         });
         if (!response.ok) {
             throw new Error("Failed to register new user");

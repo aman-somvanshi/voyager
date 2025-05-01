@@ -5,24 +5,60 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import LoginPage from './auth/LoginPage.jsx';
 import RegisterPage from './auth/RegisterPage.jsx';
 import HotelPage from "./components/Hotels/HotelPage.jsx";
-import HotelSearch from './components/Hotels/HotelSearch.jsx';
-import Transport from './components/home/Transport.jsx';
 import HotelResults from '../src/components/Hotels/HotelResults.jsx';
 import { HotelProvider } from '../src/components/Hotels/HotelContext.jsx';
-import BookingPage from "../src/components/Hotels/BookingPage.jsx";
-import { SearchContextProvider } from '../src/components/Hotels/SearchContext.jsx'; // Import SearchContextProvider
-import { AuthProvider } from './auth/authContext.jsx';
-import FlightList from "./components/flights/FlightList.jsx";
+import BookingPage from "../src/components/Hotels/BookingPage.jsx"
+import { AuthProvider, useAuth } from './auth/authContext.jsx'
+import { SearchContextProvider } from '../src/components/Hotels/SearchContext.jsx';
+import FlightList from "./components/flights/FlightList.jsx"
+import { useState, useEffect } from "react"
 
 // Layout component
-const MainLayout = () => (
-  <>
+const MainLayout = () => {
+  const {user, loading}= useAuth();
+  const [typedText, setTypedText] = useState('');
+  const fullText = user ? `Hello ${user.name}` : '';
+  const typingSpeed = 100; // Adjust for typing speed (milliseconds per letter)
+
+  useEffect(() => {
+    if (user && fullText.length > 0 && typedText.length < fullText.length) {
+      const timer = setTimeout(() => {
+        setTypedText((prevText) => prevText + fullText[prevText.length]);
+      }, typingSpeed);
+      return () => clearTimeout(timer); // Cleanup the timer
+    } else if (!user) {
+      setTypedText(''); // Clear text if user logs out or is not logged in
+    }
+  }, [user, fullText, typedText]);
+
+  if (loading) {
+    return <div>Loading user data...</div>;
+  }
+  if(!user) {
+    return (
+      <>
+        <div>Please log in to view this page.</div>
+      </>
+    )
+  }
+  
+  return (
+    <>
     <NavBar />
-    <Outlet /> {/* This is where the child routes will be rendered */}
+    <div style={{ marginTop: "5rem" }}>
+      <div className='name-container'>
+          {typedText}
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
   </>
-);
+  );
+};
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>
