@@ -5,66 +5,53 @@ import Transport from '../home/Transport';
 import SearchBar from '../home/Searchbar';
 import ReturnFlightCard from './ReturnFlightCard';
 
-const response = await fetch("http://localhost:3000/flightData");
-const flights = await response.json();
-
-const returnResponse = await fetch("http://localhost:3000/returnFlightData");
-const returnFlights = await returnResponse.json();
-
-
 function FlightList() { 
   
   const location = useLocation();
   const { state } = location;
 
-  const { fromCity, toCity, departureDate, returnDate, travellers, isReturnFlight } = state || {};
+  const { fromCity, toCity, departureDate, returnDate, travellers } = state || {};
 
-  // console.log(fromCity);
-  // console.log(toCity);
-  // console.log(departureDate);
-  // console.log(isReturnFlight);
+  const [flights, setFlights] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
 
-  // const [flights, setFlights] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+      const apiUrl = returnDate
+        ? 'http://localhost:3000/returnFlightData'
+        : 'http://localhost:3000/flightData';
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true);
-  //     setError(null);
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setFlights(data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //     const apiUrl = isReturnFlight
-  //       ? 'http://localhost:3000/returnFlightData'
-  //       : 'http://localhost:3000/flightData';
-  //     console.log(apiUrl);
-  //     try {
-  //       const response = await fetch(apiUrl);
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-  //       const data = await response.json();
-  //       setFlights(data);
-  //     } catch (e) {
-  //       setError(e);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+    fetchData();
+  }, [returnDate]);
 
-  //   fetchData();
-  // }, [isReturnFlight]);
+  if (loading) {
+    return <p>Loading flight data...</p>;
+  }
 
-  // if (loading) {
-  //   return <p>Loading flight data...</p>;
-  // }
+  if (error) {
+    return <p>Error loading flight data: {error.message}</p>;
+  }
 
-  // if (error) {
-  //   return <p>Error loading flight data: {error.message}</p>;
-  // }
-
-  let returnFilteredFlights;
-  let filteredFlights;
+  let returnFilteredFlights = [];
+  let filteredFlights = [];
 
   const formatDateForComparison = (dateString) => {
     try {
@@ -75,15 +62,6 @@ function FlightList() {
       return `${year}-${month}-${day}`;
     } catch (error) {
       return null;
-    }
-  };
-
-  const formatDateForDisplay = (dateString) => {
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString(); 
-    } catch (error) {
-      return 'Invalid Date';
     }
   };
   
@@ -99,7 +77,7 @@ function FlightList() {
     });
   }
   else{
-    returnFilteredFlights = returnFlights.filter((flight) => {
+    returnFilteredFlights = flights.filter((flight) => {
 
     const matchesFromCity = !fromCity || flight.originCity.toLowerCase() == fromCity.toLowerCase();
     const matchesToCity = !toCity || flight.destinationCity.toLowerCase() == toCity.toLowerCase();
@@ -117,13 +95,13 @@ function FlightList() {
        <div style={{ position:"relative",marginTop:"2rem"}}>
         <SearchBar />
         </div>
-        <div style={{marginTop: "2rem", marginBottom : "4rem"}}>
-          {!returnFilteredFlights &&  !filteredFlights && <span><h1>No flights from {fromCity} to {toCity} on this date!</h1></span>} 
+        <div style={{marginTop: "3rem", marginBottom : "4rem"}}>
+          {returnFilteredFlights.length == 0 &&  filteredFlights.length == 0 && departureDate && <span style = {{textAlign : "center"}}><h1>No flights from {fromCity} to {toCity} on this date!</h1></span>} 
           {!returnDate && filteredFlights && <span>
           {filteredFlights.map((flight) => (
               <FlightCard key={flight.id} flightData={flight} />
           ))}</span>}
-          {returnDate&& returnFilteredFlights && <span>
+          {returnDate && returnFilteredFlights && <span>
           {returnFilteredFlights.map((flight) => (
               <ReturnFlightCard key={flight.id} flightData={flight} />
           ))}</span>}
