@@ -1,0 +1,14 @@
+.name-container {
+    position: relative;
+    margin-left: 2.3rem;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    opacity: 0.8; /* Initial opacity */
+    transform: scale(0.98); /* Initial scale */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+  
+.name-container:hover { /* Optional: Trigger on hover */
+    opacity: 1;
+    transform: scale(1);
+}
