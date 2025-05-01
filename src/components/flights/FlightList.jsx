@@ -1,20 +1,61 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import FlightCard from './FlightCard';
 import Transport from '../home/Transport';
 import SearchBar from '../home/Searchbar';
 import ReturnFlightCard from './ReturnFlightCard';
-const response = await fetch("http://localhost:3000/flightData");
-const flights = await response.json();
 
-const returnResponse = await fetch("http://localhost:3000/returnFlightData");
-const returnFlights = await returnResponse.json();
+// const response = await fetch("http://localhost:3000/flightData");
+// const flights = await response.json();
+
+// const returnResponse = await fetch("http://localhost:3000/returnFlightData");
+// const returnFlights = await returnResponse.json();
+
 
 function FlightList() { 
+  
   const location = useLocation();
   const { state } = location;
 
-  const { fromCity, toCity, departureDate, returnDate, Travellers } = state || {};
+  const { fromCity, toCity, departureDate, returnDate, travellers, isReturnFlight } = state || {};
+
+  const [flights, setFlights] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
+      const apiUrl = isReturnFlight
+        ? 'http://localhost:3000/returnFlightData'
+        : 'http://localhost:3000/flightData';
+      console.log(apiUrl);
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setFlights(data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [isReturnFlight]);
+
+  if (loading) {
+    return <p>Loading flight data...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading flight data: {error.message}</p>;
+  }
 
   let returnFilteredFlights;
   let filteredFlights;
@@ -52,17 +93,18 @@ function FlightList() {
     });
   }
   else{
-    returnFilteredFlights = returnFlights.filter((flight) => {
-    
-    // console.log(flight.returnFlightDate == returnDate);
+    returnFilteredFlights = flights.filter((flight) => {
+
     const matchesFromCity = !fromCity || flight.originCity.toLowerCase() == fromCity.toLowerCase();
     const matchesToCity = !toCity || flight.destinationCity.toLowerCase() == toCity.toLowerCase();
     const matchesDepartureDate = !departureDate || formatDateForComparison(flight.departureDate) == formatDateForComparison(departureDate);
     const matchesReturnDate = !returnDate || formatDateForComparison(flight.returnFlightDate) == formatDateForComparison(returnDate);
-    // matchesFromCity && matchesToCity && matchesDepartureDate && matchesReturnDate
-    return true;
+    
+    return matchesFromCity && matchesToCity && matchesDepartureDate && matchesReturnDate;
   });
   }
+  // console.log(filteredFlights);
+  // console.log(returnFilteredFlights);
   return (
     <>
       <div style={{ position:"relative"}}>
@@ -72,11 +114,12 @@ function FlightList() {
         <SearchBar />
         </div>
         <div style={{marginTop: "2rem", marginBottom : "4rem"}}>
-          {!returnDate && <span>
+          {!returnFilteredFlights &&  !filteredFlights && <span><h1>No flights from {fromCity} to {toCity} on this date!</h1></span>} 
+          {!isReturnFlight && <span>
           {filteredFlights.map((flight) => (
               <FlightCard key={flight.id} flightData={flight} />
           ))}</span>}
-          {returnDate && <span>
+          {isReturnFlight && <span>
           {returnFilteredFlights.map((flight) => (
               <ReturnFlightCard key={flight.id} flightData={flight} />
           ))}</span>}

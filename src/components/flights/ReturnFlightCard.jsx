@@ -1,5 +1,5 @@
 import React from 'react';
-import './FlightCard.css'; // Make sure this CSS file exists and has the styles
+import './FlightCard.css';
 
 function FlightCard({ flightData}) {
   const calculateArrivalTime = () => {
@@ -24,9 +24,10 @@ function FlightCard({ flightData}) {
     <div className="flight-card">
       <div className="airline-info">
         <span className="airline-name">{flightData.airline}</span>
-        <span className="flight-number">{flightData.flightNumber}</span>
-        {/* {flightData.freeMeal && <span className="free-meal-tag">Free Meal</span>}
-        {flightData.recommended && <span className="recommended-tag">Recommended</span>} */}
+        <div >
+        <span className="flight-number">{flightData.flightNumber}</span><br/>
+        <span className="flight-number">{flightData.returnFlightNumber}</span>
+        </div>
       </div>
       <div className="departure-time">
         <span style={{marginLeft : "5px"}}>{flightData.departureDate}</span>
@@ -47,7 +48,8 @@ function FlightCard({ flightData}) {
       </div>
 
       <div className="duration-info"  >
-      <span className="stops">{flightData.stops === 0 ? 'Non-stop' : `${flightData.stops} Stop${flightData.stops > 1 ? 's' : ''}`}</span>
+      <span className="stops">{flightData.stops === 0 ? 'Non-stop' : `${flightData.stops} Stop${flightData.stops > 1 ? 's' : ''}`}</span><br />
+      <span className="stops">{flightData.returnStops === 0 ? 'Non-stop' : `${flightData.stops} Stop${flightData.stops > 1 ? 's' : ''}`}</span>
       </div>
 
       <div className="arrival-info">

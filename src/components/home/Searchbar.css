@@ -53,16 +53,30 @@
     border-radius: 5px;
     background-color: white;
 }
-.btn-click{
-  border-radius: 50rem; /* Creates the pill shape */
+.btn-click {
+  border-radius: 30rem;
   border: none;
   color: white;
-  background-color:#dc3545;
+  background-color: #dc3545;
   border-color: #dc3545;
+  padding: 8px 12px; 
+  font-size: 1rem; 
+}
+.btn-small{
+  border-radius: 30rem;
+  border: none;
+  color: #dc3545;
+  background-color: white;
+  border-color: white;
+  padding: 6px 9px; 
+  font-size: .9rem;
 }
 .btn-click:hover {
   color: #fff; /* White text on hover */
   background-color: #dc3545; /* Bootstrap's $danger background on hover */
   border-color: #dc3545; /* Maintain border color on hover */
+}
+.form-control{
+  border: 1px solid black;
 }
 /* ... other CSS rules ... */
