@@ -6,7 +6,6 @@ import SearchBar from '../home/Searchbar';
 import ReturnFlightCard from './ReturnFlightCard';
 import FlightBookingUI from "./FlightBookingPage";
 import { SearchFlightContext } from './SearchFlightContext';
-import { useTravelMode } from '../home/TransportContext';
 
 function FlightList() { 
 
@@ -15,14 +14,6 @@ function FlightList() {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const {isActiveFlight, setIsActiveFlight} = useTravelMode();
-  const location = useLocation();
-
-  useEffect(() => {
-    if(location.pathname == "/flights"){
-      setIsActiveFlight(true);
-    }
-  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
