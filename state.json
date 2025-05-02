@@ -101,7 +101,7 @@
           "endDate": "2025-05-20"
         }
       ],
-      "imageUrl": "Hotel1.jpeg",
+      "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
       "location": "Civil Lines, Meerut"
     },
     {

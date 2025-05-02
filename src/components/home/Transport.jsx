@@ -30,7 +30,7 @@ const Transport = ({text}) => {
         <a href="/hotel" onClick={handleHotels}><li><FontAwesomeIcon icon={faHotel} className={isActiveHotel ? "transport-icon-select" : "transport-icon"} /><span>Hotels</span></li></a> {/* Using FontAwesome Icons*/}
         <a href="#"><li><FontAwesomeIcon icon={faTrain} className="transport-icon" /><span>Trains</span> </li></a>
         <a href="#"><li><FontAwesomeIcon icon={faBus} className="transport-icon" /><span>Buses</span></li></a>
-        <li className="right-aligned-text">{text}</li>  {/*hardcoded*/}
+        <li className="right-aligned-text">{text}</li>
      </ul>
     </div>);
 }
