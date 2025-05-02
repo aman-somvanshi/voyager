@@ -46,12 +46,12 @@ function FlightCard({ flightData}) {
       </div>
 
       <div className="price-info">
-        <span className="price">₹{flightData.price}</span>
-        {flightData.discount > 0 && <span className="discount">Extra ₹{flightData.discount} Off</span>}
+        <span className="price">₹{flightData.price}<sub> /person</sub></span>
       </div>
 
       <div className="booking-actions">
         <button className="book-button">Book</button>
+        <span>{flightData.discount > 0 && <span className="discount">  Extra ₹{flightData.discount} Off</span>}</span>
       </div>
     </div>
   );
