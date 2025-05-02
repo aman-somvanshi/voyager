@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';   
 import './FlightCard.css';
+function FlightCard({flightData}) {
 
-function FlightCard({ flightData}) {
+  const navigate = useNavigate();
+  function handleBookingClick(){
+    navigate('/flight-booking', {state: flightData});
+  }
+
   const calculateArrivalTime = () => {
     const [hours, minutes] = flightData.departureTime.split(':').map(Number);
     const totalMinutes = hours * 60 + minutes + flightData.duration;
@@ -68,12 +74,12 @@ function FlightCard({ flightData}) {
         <span style={{marginLeft : "5px"}}>{flightData.returnFlightDate}</span>
       </div>
       <div className="price-info">
-        <span className="price">₹{flightData.totalPrice}<sub> /person</sub></span>
+        <span className="price">₹{flightData.price}<sub> /person</sub></span>
         {/* {flightData.discount > 0 && <span className="discount">Extra ₹{flightData.discount} Off</span>} */}
       </div>
 
       <div className="booking-actions">
-        <button className="book-button">Book</button>
+        <button className="book-button" onClick={handleBookingClick}>Book</button>
         <span>{flightData.discount > 0 && <span className="discount">  Extra ₹{flightData.discount} Off</span>}</span>
       </div>
     </div>
