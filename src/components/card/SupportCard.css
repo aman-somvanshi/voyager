@@ -1,0 +1,16 @@
+.support-card {
+    min-width: 300px; /* Adjust as needed */
+    max-width: 80vw; /* Adjust as needed */
+  }
+  
+  .support-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .support-card .btn-close {
+    margin-left: auto;
+  }
+
+  

@@ -1,0 +1,14 @@
+.dropdown-menu {
+    top: 100%;
+    left: 0;
+    min-width: 150px; /* Adjust as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item {
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa; /* Light gray hover effect */
+  }
