@@ -77,6 +77,12 @@
       "name": "Aditya",
       "email": "aditya@gmail.com",
       "password": "aditya123"
+    },
+    {
+      "id": "14",
+      "name": "Shivani Rajput",
+      "email": "shivani@gmail.com",
+      "password": "shivani123"
     }
   ],
   "hotels": [

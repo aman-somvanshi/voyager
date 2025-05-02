@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo, faHeadset } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faHeadset} from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../auth/authContext';
 import SupportDropdown from './dropdown/SupportDropdown';
 import SupportCard from './card/SupportCard';
@@ -61,6 +61,15 @@ function NavBar() {
       // Optionally, reset the submission status after a longer delay
       // setSubmissionStatus(null);
     }, 1500);
+  };
+
+  const scrollToFooter = () => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error("Footer element with id 'footer' not found!");
+    }
   };
 
   const supportItems = [
@@ -172,15 +181,15 @@ function NavBar() {
         </button>
         <div className={`collapse navbar-collapse ${!isCollapsed ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link mx-2 navbar-help-link" style={{ fontFamily: 'Roboto' }}>
-                <b>Help</b>
-                <FontAwesomeIcon
-                  icon={faCircleInfo}
-                  style={{ marginLeft: '4px', height: '16px', marginBottom: '0px', marginTop: '1px' }}
-                />
-              </a>
-            </li>
+          <li className="nav-item">
+            <a className="nav-link mx-2" style={{ fontFamily: 'Roboto', cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={scrollToFooter}>
+              <b>About Us</b>
+              <FontAwesomeIcon
+                icon={faCircleInfo}
+                style={{ marginLeft: '4px', height: '16px' }}
+              />
+            </a>
+          </li>
             <li className="nav-item position-relative navbar-support-dropdown">
               <div
                 className="nav-link mx-2 navbar-support-toggle"
