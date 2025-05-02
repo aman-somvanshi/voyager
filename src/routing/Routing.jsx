@@ -12,6 +12,7 @@ import PrivateRoute from "./../auth/PrivateRoute.jsx";
 import { AuthProvider, useAuth } from "../auth/authContext.jsx";
 import './Routing.css'
 import FlightBookingPage from "../components/flights/FlightBookingPage.jsx";
+import { TravelModeProvider } from "../components/home/TransportContext.jsx";
 // Layout component
 const MainLayout = () => {
     const {user}= useAuth();
@@ -50,7 +51,8 @@ const Routing = () => {
     return (
         <BrowserRouter>
             <AuthProvider>
-                <Routes>
+            <TravelModeProvider>
+            <Routes>
                     <Route path='/' element={<LoginPage />} /> 
                     <Route path='/login' element={<LoginPage />} /> 
                     <Route path='/signup' element={<RegisterPage />} />
@@ -67,6 +69,7 @@ const Routing = () => {
                     </Route>
                     <Route path="*" element={<div>404 Page Not Found</div>} />
                 </Routes>
+                </TravelModeProvider>
             </AuthProvider>
         </BrowserRouter>
     );

@@ -28,6 +28,12 @@
     margin-right: 5px; /* Add some spacing between the icon and text */
     color: black;
   }
+  .transport-icon-select {
+    font-size: 3rem;
+    cursor: pointer;
+    margin-right: 5px; /* Add some spacing between the icon and text */
+    color: #dc3545;
+  }
   .right-aligned-text{
    margin-left: 27rem;
    font-size:large;
