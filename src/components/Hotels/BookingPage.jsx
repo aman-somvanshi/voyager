@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import './BookingPage.css';
-import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
+import { SearchContext } from '../Hotels/SearchContext';
+import { useNavigate } from 'react-router-dom';
 
 const BookingPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const hotelName = location.state?.hotelName || 'Hotel Details';
   const { checkInDate, checkOutDate, guests, selectedHotelImage } = useContext(SearchContext); // Access selectedHotelImage
-
+  const navigate = useNavigate();
   const formatDateForInput = (date) => {
     if (!date) return '';
     const year = date.getFullYear();
@@ -61,7 +62,7 @@ const BookingPage = () => {
             <input type="email" id="email" name="email" />
           </div>
 
-          <button type="submit" className="submit-booking-button">
+          <button type="submit" className="submit-booking-button" onClick={() =>  navigate('/thankyou')}>
             Confirm Booking
           </button>
         </form>
