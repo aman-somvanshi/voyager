@@ -101,7 +101,7 @@ const SearchBar = () => {
       <div className='inputcontainer'>
         <div className="inputs">
           <label htmlFor="fromCity" className="form-label"></label>
-          <input type="text" className="form-control" id="fromCity" placeholder="From" autocomplete="off" value={fromCity} onChange={handleFromCityChange} required/>
+          <input type="text" className="form-control" id="fromCity" placeholder="From" autoComplete="off" value={fromCity} onChange={handleFromCityChange} required/>
           <label htmlFor="toCity" className="form-label"></label>
           <input type="text" className="form-control" id="toCity" placeholder="To" value={toCity} onChange={handleToCityChange} required/>
             <label htmlFor="departure" className="form-label"></label>

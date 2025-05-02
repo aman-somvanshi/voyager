@@ -9,7 +9,6 @@ export const FlightContextProvider = ({ children }) => {
     const [departureDate, setDepartureDate] = useState(null);
     const [returnDate, setReturnDate] = useState(null);
     const [numberOfTravellers, setNumberOfTravellers] = useState('');
-    const [isComingFromSearch, setComingFromSearch] = useState(false);
 
   const updateFlightSearch = (fromCity, toCity, departureDate, returnDate, numberOfTravellers) => {
     setFromCity(fromCity);
@@ -17,7 +16,6 @@ export const FlightContextProvider = ({ children }) => {
     setDepartureDate(departureDate);
     setReturnDate(returnDate);
     setNumberOfTravellers(numberOfTravellers);
-    setComingFromSearch(true);
   };
 
   return (
@@ -28,7 +26,6 @@ export const FlightContextProvider = ({ children }) => {
         departureDate,
         returnDate,
         numberOfTravellers,
-        isComingFromSearch,
         setDepartureDate,
         setFromCity,
         setNumberOfTravellers,

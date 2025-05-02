@@ -11,6 +11,7 @@ import { useState, useEffect } from "react"
 import PrivateRoute from "./../auth/PrivateRoute.jsx";
 import { AuthProvider, useAuth } from "../auth/authContext.jsx";
 import './Routing.css'
+import FlightBookingPage from "../components/flights/FlightBookingPage.jsx";
 // Layout component
 const MainLayout = () => {
     const {user}= useAuth();
@@ -53,7 +54,6 @@ const Routing = () => {
                     <Route path='/' element={<LoginPage />} /> 
                     <Route path='/login' element={<LoginPage />} /> 
                     <Route path='/signup' element={<RegisterPage />} />
-
                     {/* Routes that use the MainLayout and need search context */}
                     <Route element={<PrivateRoute>
                     <MainLayout/>
@@ -61,7 +61,8 @@ const Routing = () => {
                     <Route path='/home' element={<Home />} />
                     <Route path='/hotel' element={<HotelPage />} /> 
                     <Route path='/flights' element={<FlightList />} />
-                    <Route path="/hotel-results" element={<HotelResults />} />
+                    <Route path="/flight-booking" element={<FlightBookingPage/>}/>
+                    <Route path="/hotel-results" element={<HotelResults />}/>
                     <Route path="/booking/:id" element={<BookingPage />} />
                     </Route>
                     <Route path="*" element={<div>404 Page Not Found</div>} />

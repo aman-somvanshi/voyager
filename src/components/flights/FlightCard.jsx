@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './FlightCard.css'; // Make sure this CSS file exists and has the styles
+import flightBookingPage from "./FlightBookingPage";
 
 function FlightCard({ flightData}) {
+  const navigate = useNavigate();
+  function handleBookingClick(){
+    navigate('/flight-booking', {state: flightData});
+  }
+
   const calculateArrivalTime = () => {
     const [hours, minutes] = flightData.departureTime.split(':').map(Number);
     const totalMinutes = hours * 60 + minutes + flightData.duration;
@@ -50,7 +57,7 @@ function FlightCard({ flightData}) {
       </div>
 
       <div className="booking-actions">
-        <button className="book-button">Book</button>
+        <button className="book-button" onClick={handleBookingClick}>Book</button>
         <span>{flightData.discount > 0 && <span className="discount">  Extra ₹{flightData.discount} Off</span>}</span>
       </div>
     </div>
