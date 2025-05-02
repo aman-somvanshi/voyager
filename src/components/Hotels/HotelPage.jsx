@@ -1,13 +1,13 @@
 import NavBar from "../NavBar";
 import Transport from "./../home/Transport";
 import HotelSearch from "../Hotels/HotelSearch";
-import Cards1 from '../home/homeCards/Cards.jsx';
+import Cards from "../home/homeCards/Cards";
 const Hotel = () => {
     return ( 
       <>
       <Transport text={"Hotel Booking"}/>
       <HotelSearch/>
-      <Cards1/>
+      <Cards title={"Today's Hotel Offers"}/>
       </>
      );
 }

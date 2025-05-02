@@ -26,7 +26,7 @@ function Home() {
           <More/>
         </div>
         <div>
-          <Cards className="card-wrapper"/>
+          <Cards className="card-wrapper" title={"Today's Flights Offers"}/>
         </div>
         <div style = {{marginTop:"60px"}}>
           <Footer ></Footer>

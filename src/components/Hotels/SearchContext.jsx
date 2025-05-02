@@ -8,6 +8,7 @@ export const SearchContextProvider = ({ children }) => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState(1);
+  const [selectedHotelImage, setSelectedHotelImage] = useState('');
 
   const updateSearch = (newDestination, newCheckInDate, newCheckOutDate, newGuests) => {
     setDestination(newDestination);
@@ -23,11 +24,13 @@ export const SearchContextProvider = ({ children }) => {
         checkInDate,
         checkOutDate,
         guests,
+        selectedHotelImage, 
         setDestination, // Optionally expose individual setters
         setCheckInDate,
         setCheckOutDate,
         setGuests,
         updateSearch,
+        setSelectedHotelImage
       }}
     >
       {children}
