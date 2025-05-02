@@ -9,7 +9,7 @@ const ThankYou = () => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
           navigate('/home');
-        }, 5000); // Navigate after 5 seconds
+        }, 7000); // Navigate after 7 seconds
     
         // Clean up the timeout if the component unmounts
         return () => clearTimeout(timeoutId);

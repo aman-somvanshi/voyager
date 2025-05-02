@@ -3,8 +3,10 @@ import { useParams, useLocation } from 'react-router-dom';
 import './BookingPage.css';
 import { SearchContext } from '../Hotels/SearchContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../auth/authContext';
 
 const BookingPage = () => {
+  const {user} = useAuth();
   const { id } = useParams();
   const location = useLocation();
   const hotelName = location.state?.hotelName || 'Hotel Details';
@@ -54,12 +56,12 @@ const BookingPage = () => {
 
           <div className="form-group">
             <label htmlFor="name">Your Name:</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" value={user?.name || ''} />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Your Email:</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" value={user?.email || ''}/>
           </div>
 
           <button type="submit" className="submit-booking-button" onClick={() =>  navigate('/thankyou')}>

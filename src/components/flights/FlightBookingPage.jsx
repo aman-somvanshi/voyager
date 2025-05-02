@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SearchFlightContext } from './SearchFlightContext';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useAuth } from "../../auth/authContext";
 
 // const navigate = useNavigate();
 const FlightBookingPage = () => {
@@ -9,6 +10,7 @@ const FlightBookingPage = () => {
   const location = useLocation();
   const { state } = location;
   const navigate = useNavigate();
+  const {user} = useAuth();
   const [travellers, setTravellers] = useState(contextNoOfTravellers || 0);
   const [prompted, setPrompted] = useState(false);
   const hasCancelledOrInvalid = useRef(false);
@@ -53,9 +55,9 @@ const FlightBookingPage = () => {
   }
   
   const [formData, setFormData] = useState({
-    name: '',
+    name: user?.name || '',
     age: '',
-    email: '',
+    email: user?.email || '',
     gender: '',
     phoneNumber: '',
   });
@@ -251,7 +253,7 @@ const FlightBookingPage = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <button className="btn btn-danger mb-3" type="submit" style={{width : "100%", marginLeft:"0px", height:"45px", fontFamily:"Roboto"}} >
+                <button className="btn btn-danger mb-3" type="submit" style={{width : "100%", marginLeft:"0px", height:"45px", fontFamily:"Roboto"}} onClick={() =>  navigate('/thankyou')} >
                 Confirm Booking</button>
               </form>
             </div>
