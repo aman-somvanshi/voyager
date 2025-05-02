@@ -1,27 +1,27 @@
 import React, { useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import './BookingPage.css';
-import { SearchContext } from '../Hotels/SearchContext';
+import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const BookingPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const hotelName = location.state?.hotelName || 'Hotel Details';
-  const { checkInDate, checkOutDate,guests} = useContext(SearchContext);
+  const { checkInDate, checkOutDate, guests, selectedHotelImage } = useContext(SearchContext); // Access selectedHotelImage
 
   const formatDateForInput = (date) => {
     if (!date) return '';
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
   const checkInFormatted = formatDateForInput(checkInDate);
-  const checkOutFormatted = formatDateForInput(checkOutDate); 
+  const checkOutFormatted = formatDateForInput(checkOutDate);
+
   return (
-    <>
-      <img href="Hotel1.jpeg" />
-      <div className="booking-page-container">
+    <div className="booking-page-container">
+      <div className="booking-form-left">
         <h1 className="hname">Booking for {hotelName}</h1>
         <p>Please fill in your booking details below:</p>
 
@@ -66,7 +66,10 @@ const BookingPage = () => {
           </button>
         </form>
       </div>
-    </>
+      <div className="booking-image-right">
+        {selectedHotelImage && <img src={selectedHotelImage} alt={hotelName} className="hotel-image" />}
+      </div>
+    </div>
   );
 };
 

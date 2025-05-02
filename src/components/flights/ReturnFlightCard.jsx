@@ -68,12 +68,13 @@ function FlightCard({ flightData}) {
         <span style={{marginLeft : "5px"}}>{flightData.returnFlightDate}</span>
       </div>
       <div className="price-info">
-        <span className="price">₹{flightData.totalPrice}</span>
-        {flightData.discount > 0 && <span className="discount">Extra ₹{flightData.discount} Off</span>}
+        <span className="price">₹{flightData.totalPrice}<sub> /person</sub></span>
+        {/* {flightData.discount > 0 && <span className="discount">Extra ₹{flightData.discount} Off</span>} */}
       </div>
 
       <div className="booking-actions">
         <button className="book-button">Book</button>
+        <span>{flightData.discount > 0 && <span className="discount">  Extra ₹{flightData.discount} Off</span>}</span>
       </div>
     </div>
   );
