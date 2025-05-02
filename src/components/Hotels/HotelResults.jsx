@@ -8,7 +8,7 @@ import './HotelResults.css';
 import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const HotelResults = () => {
-  const { destination, checkInDate, checkOutDate, guests } = useContext(SearchContext);
+  const { destination,checkInDate,checkOutDate,guests,} = useContext(SearchContext);
   const { hotels, loading, error } = useContext(HotelContext);
 
   if (loading) {
@@ -25,12 +25,7 @@ const HotelResults = () => {
 
   const filteredHotels = hotels.filter(hotel => {
     const destinationMatch = hotel.city?.toLowerCase() === (destination?.toLowerCase() || '');
-    const isAvailable = hotel.availability?.some(period => {
-      const startDate = new Date(period.startDate);
-      const endDate = new Date(period.endDate);
-      return checkInDate && checkOutDate && checkInDate >= startDate && checkOutDate <= endDate;
-    });
-    return destinationMatch && isAvailable;
+    return destinationMatch; // Only filter by destination now
   });
 
   return (
@@ -39,9 +34,9 @@ const HotelResults = () => {
       <Transport />
       <HotelSearch
         initialDestination={destination}
-        initialCheckIn={checkInDate}
-        initialCheckOut={checkOutDate}
-        initialGuests={guests}
+        initialCheckIn={checkInDate} // No longer needed for filtering here
+         initialCheckOut={checkOutDate} // No longer needed for filtering here
+         initialGuests={guests}     // Might still be used for the search input
       />
       <div className="hotel-results">
         <h2 className="available">Available Hotels in {destination || 'All Destinations'}</h2>
@@ -53,7 +48,7 @@ const HotelResults = () => {
           ))}
         </ul>
       ) : (
-        <p>No hotels available for the selected dates and destination.</p>
+        <p>No hotels available for the selected destination.</p>
       )}
     </>
   );

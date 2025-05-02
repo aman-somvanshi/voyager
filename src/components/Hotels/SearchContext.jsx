@@ -9,12 +9,14 @@ export const SearchContextProvider = ({ children }) => {
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState(1);
   const [selectedHotelImage, setSelectedHotelImage] = useState('');
+  const[roomsAvailable,setRoomsAvailable]=useState();
 
-  const updateSearch = (newDestination, newCheckInDate, newCheckOutDate, newGuests) => {
+  const updateSearch = (newDestination, newCheckInDate, newCheckOutDate, newGuests,newRoomAvailable) => {
     setDestination(newDestination);
     setCheckInDate(newCheckInDate);
     setCheckOutDate(newCheckOutDate);
     setGuests(newGuests);
+    setRoomsAvailable(newRoomAvailable)
   };
 
   return (
@@ -25,12 +27,14 @@ export const SearchContextProvider = ({ children }) => {
         checkOutDate,
         guests,
         selectedHotelImage, 
+        roomsAvailable,
         setDestination, // Optionally expose individual setters
         setCheckInDate,
         setCheckOutDate,
         setGuests,
         updateSearch,
-        setSelectedHotelImage
+        setSelectedHotelImage,
+        setRoomsAvailable
       }}
     >
       {children}

@@ -85,76 +85,44 @@
       "password": "shivani123"
     }
   ],
-  "hotels": [
-    {
-      "id": "1",
-      "name": "Luxury Grand Hotel",
-      "city": "Meerut",
-      "price": 150,
-      "availability": [
-        {
-          "startDate": "2025-04-28",
-          "endDate": "2025-05-05"
-        },
-        {
-          "startDate": "2025-05-10",
-          "endDate": "2025-05-20"
-        }
-      ],
-      "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
-      "location": "Civil Lines, Meerut"
-    },
-    {
-      "id": "2",
-      "name": "Comfort Inn Suites",
-      "city": "Meerut",
-      "price": 80,
-      "availability": [
-        {
-          "startDate": "2025-04-29",
-          "endDate": "2025-05-02"
-        },
-        {
-          "startDate": "2025-05-15",
-          "endDate": "2025-05-30"
-        }
-      ],
-      "imageUrl": "Hotel1.jpeg",
-      "location": "Delhi Road, Meerut"
-    },
-    {
-      "id": "3",
-      "name": "The Heritage Plaza",
-      "city": "Delhi",
-      "price": 120,
-      "availability": [
-        {
-          "startDate": "2025-04-25",
-          "endDate": "2025-05-10"
-        }
-      ],
-      "imageUrl": "Hotel1.jpeg",
-      "location": "Connaught Place, Delhi"
-    },
-    {
-      "id": "4",
-      "name": "Sunshine Residency",
-      "city": "Meerut",
-      "price": 65,
-      "availability": [
-        {
-          "startDate": "2025-04-20",
-          "endDate": "2025-05-01"
-        },
-        {
-          "startDate": "2025-05-05",
-          "endDate": "2025-05-15"
-        }
-      ],
-      "imageUrl": "Hotel1.jpeg",
-      "location": "Garh Road, Meerut"
-    }
-  ],
+    "hotels": [
+      {
+        "id": "1",
+        "name": "Luxury Grand Hotel",
+        "city": "Mumbai",
+        "price": 150,
+        "roomsAvailable": 5,
+        "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+        "location": "Civil Lines, Meerut"
+      },
+      {
+        "id": "2",
+        "name": "Comfort Inn Suites",
+        "city": "Mumbai",
+        "price": 80,
+        "roomsAvailable": 10,
+        "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+        "location": "Delhi Road, Meerut"
+      },
+      {
+        "id": "3",
+        "name": "The Heritage Plaza",
+        "city": "Mumbai",
+        "price": 120,
+        "roomsAvailable": 3,
+        "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+        "location": "Connaught Place, Delhi"
+      },
+      {
+        "id": "4",
+        "name": "Sunshine Residency",
+        "city": "Chennai",
+        "price": 65,
+        "roomsAvailable": 8,
+        "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+        "location": "Garh Road, Meerut"
+      }
+    ],
   "flightData": [
     {
       "id": "1",
