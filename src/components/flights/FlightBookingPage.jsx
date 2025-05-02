@@ -68,8 +68,10 @@ const FlightBookingPage = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleConfirmBooking = () => {
+    // console.log("HEllo world");
+    // event.preventDefault();
+    // navigate("/thankyou");
    // You can add your form submission logic here
   };
   
@@ -179,7 +181,7 @@ const FlightBookingPage = () => {
             <hr className="border-dark" />
             <div className="container mt-4">
               <h3>User Information</h3>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleConfirmBooking()}>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name:
@@ -249,7 +251,7 @@ const FlightBookingPage = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <button className="btn btn-danger mb-3" style={{width : "100%", marginLeft:"0px", height:"45px", fontFamily:"Roboto", alignContent : "center"}}>
+                <button className="btn btn-danger mb-3" type="submit" style={{width : "100%", marginLeft:"0px", height:"45px", fontFamily:"Roboto"}} >
                 Confirm Booking</button>
               </form>
             </div>
