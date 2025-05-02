@@ -50,8 +50,8 @@ const Routing = () => {
         <BrowserRouter>
             <AuthProvider>
                 <Routes>
-                    <Route path='/' element={<LoginPage />} /> {/* Root path now renders LoginPage */}
-                    <Route path='/login' element={<LoginPage />} /> {/* You can keep this for clarity or remove it */}
+                    <Route path='/' element={<LoginPage />} /> 
+                    <Route path='/login' element={<LoginPage />} /> 
                     <Route path='/signup' element={<RegisterPage />} />
 
                     {/* Routes that use the MainLayout and need search context */}
@@ -59,7 +59,7 @@ const Routing = () => {
                     <MainLayout/>
                     </PrivateRoute>}>
                     <Route path='/home' element={<Home />} />
-                    <Route path='/hotel' element={<HotelPage />} /> {/* HotelSearch is inside HotelPage */}
+                    <Route path='/hotel' element={<HotelPage />} /> 
                     <Route path='/flights' element={<FlightList />} />
                     <Route path="/hotel-results" element={<HotelResults />} />
                     <Route path="/booking/:id" element={<BookingPage />} />

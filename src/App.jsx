@@ -8,8 +8,8 @@ function App() {
   
   return (
     <>
-          <HotelProvider> {/* Keep HotelProvider here if it provides hotel data */}
-            <SearchContextProvider> {/* Wrap the routes that need search context */}
+          <HotelProvider>
+            <SearchContextProvider>
               <Routing />
             </SearchContextProvider>
           </HotelProvider>

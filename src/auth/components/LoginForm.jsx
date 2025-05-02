@@ -31,7 +31,7 @@ const LoginForm = () => {
       boxSizing: 'border-box',
     },
     button: {
-      backgroundColor: "#dc3545", /* Dark color similar to Bootstrap's btn-dark */
+      backgroundColor: "#dc3545",
       color: "#fff",
       border: 'none',
       borderRadius: '8px',

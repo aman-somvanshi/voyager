@@ -1,15 +1,15 @@
-/* src/components/PreFooter.css */
+
 .pre-footer {
-  background-color: #f9f9f9; /* Example background */
+  background-color: #f9f9f9;
   padding: 20px;
-  border-top: 1px solid #eee; /* Example separator */
+  border-top: 1px solid #eee; 
 }
 
 .pre-footer-container {
    max-width: 1230px;
   margin: 0 auto;
-  text-align: left; /* Set default text alignment for the container */
-  font-family: 'Open Sans', sans-serif; /* Apply the similar font */
+  text-align: left; 
+  font-family: 'Open Sans', sans-serif; 
 
 }
 
@@ -18,39 +18,37 @@
   margin-bottom: 15px;
 }
 
-/* Styles for the table */
+
 .pre-footer-container table {
   width: 100%;
-  border-collapse: separate; /* Use 'separate' to allow spacing between cells */
-  border-spacing: 1px; /* Adjust this value to control the spacing between cells */
+  border-collapse: separate; 
+  border-spacing: 1px; 
   margin-top: 1em;
   margin-bottom: 1em;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Styles for table cells (td) */
+
 .pre-footer-container td {
-  padding: 15px; /* Use the padding you specified */
-  text-align: left; /* Ensure text within cells is left-aligned */
+  padding: 15px; 
+  text-align: left; 
   font-family: 'Open Sans', sans-serif;
 }
 
-/* Styles for table headers (th) - if you add them later */
+
 .pre-footer-container th {
   background-color: #f0f0f0;
   font-weight: bold;
   padding: 0.5em;
-  text-align: left; /* Ensure header text is also left-aligned */
+  text-align: left;
 }
 
-/* Styles for the bg-charcoal-40 class applied to td */
+
 .bg-charcoal-40 {
   --tw-bg-opacity: 1;
   background-color: rgb(244 245 245 / var(--tw-bg-opacity));
 }
 
-/* Styles for the ReadMoreLess component */
-/* You might have additional styles for the button etc. */
 .read-more-inline {
   background: none;
   border: none;
@@ -80,7 +78,7 @@
   text-decoration: underline;
 }
 
-/* Prevent wrapping in the Bus Booking description */
+
 .pre-footer-container table tr:nth-child(3) td:last-child {
   white-space: nowrap;
 }
@@ -92,8 +90,8 @@
 }
 
 .airline-status-list li {
-  margin-bottom: 0.2em; /* Added small margin to bottom of each list item */
-  line-height: 1.2; /* changed line height to 1.2 to add spacing */
+  margin-bottom: 0.2em;
+  line-height: 1.2;
 }
 
 .airline-link {

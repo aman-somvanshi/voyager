@@ -33,7 +33,7 @@
   text-decoration: none;
   font-weight: 400;
   line-height: 1.2;
-  margin-right: 10px; /* Added right margin */
+  margin-right: 10px;
 }
 
 .footer-column ul li a:hover {
@@ -106,7 +106,7 @@
   white-space: normal;
   line-height: 1.4;
   display: inline-block;
-  margin-right: 10px; /* Added right margin */
+  margin-right: 10px; 
 }
 
 .important-links ul li a:hover {
@@ -152,28 +152,28 @@
 
 .footer-links-row {
   display: flex;
-  gap: 10px; /* Reduce gap */
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2px; /* Reduce bottom margin */
+  margin-bottom: 2px;
 }
 
 .copyright-info {
-  font-size: 0.75em; /* Slightly reduce font size */
+  font-size: 0.75em; 
   color: #6c757d;
   text-align: center;
-  margin-bottom: 2px; /* Reduce bottom margin */
+  margin-bottom: 2px; 
 }
 
 
 .footer-separator {
-  position: relative; /* To allow absolute positioning of the logo */
-  margin-bottom: 20px; /* Adjust spacing as needed */
+  position: relative; 
+  margin-bottom: 20px;
 }
 
 .footer-separator hr {
   border: 0;
-  border-top: 1px solid black; /* Changed #ccc to black */
+  border-top: 1px solid black; 
   width: 100%;
   margin: 0;
 }
@@ -182,13 +182,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the logo both horizontally and vertically */
-  background-color: white; /* To cover the line behind the logo - ADJUST IF YOUR BACKGROUND IS DIFFERENT */
-  padding: 0 15px; /* Adjust padding around the logo */
-  z-index: 1; /* Ensure the logo is above the line */
+  transform: translate(-50%, -50%);
+  background-color: white; 
+  padding: 0 15px; 
+  z-index: 1; 
 }
 
 .separator-logo {
-  height: 30px; /* Adjust the logo height as needed */
-  /* You might need to adjust width or add other styles */
+  height: 30px; 
 }
