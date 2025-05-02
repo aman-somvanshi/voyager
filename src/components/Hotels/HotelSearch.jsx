@@ -12,7 +12,6 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
   const [guests, setGuests] = useState(initialGuests || '');
   const navigate = useNavigate();
   const { updateSearch } = useContext(SearchContext);
-
   // Update local state when props change (for cases where the component might re-render)
   useEffect(() => {
     setDestination(initialDestination || '');
@@ -20,6 +19,21 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
     setCheckOut(initialCheckOut || null);
     setGuests(initialGuests || '');
   }, [initialDestination, initialCheckIn, initialCheckOut, initialGuests]);
+  const cities = [
+    'Mumbai',
+    'Delhi',
+    'Bangalore',
+    'Chennai',
+    'Kolkata',
+    'Hyderabad',
+    'Pune',
+    'Ahmedabad',
+    'Jaipur',
+    'Lucknow',
+  ];
+  const handleCityChange = (event) => {
+    setDestination(event.target.value);
+  };
 
   const handleSearch = () => {
     if (!destination || !checkIn || !checkOut || !guests) {
@@ -41,15 +55,22 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
       <div className='inputcontainer'>
         <div className="inputs">
           <label htmlFor="Destination" className="destination-label"></label>
-          <input
+          <select
             type="text"
             className="form-control"
             id="fromCity"
             placeholder="Destination"
             value={destination}
-            onChange={(e) => setDestination(e.target.value)}
+            onChange={handleCityChange}
             required
-          />
+          >
+            <option value="" disabled>Select a Destination</option> {/* Default placeholder option */}
+            {cities.map((city) => (
+              <option key={city} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
           <label htmlFor="departure" className="form-label"></label>
           <DatePicker
             selected={checkIn}
@@ -73,7 +94,7 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
             type="text"
             className="form-control"
             id="travellers"
-            placeholder="Rooms & Guests"
+            placeholder="Rooms"
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
             required
