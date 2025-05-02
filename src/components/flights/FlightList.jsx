@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { useLocation } from 'react-router-dom';
 import FlightCard from './FlightCard';
 import Transport from '../home/Transport';
 import SearchBar from '../home/Searchbar';
 import ReturnFlightCard from './ReturnFlightCard';
+import FlightBookingUI from "./FlightBookingPage";
+import { SearchFlightContext } from './SearchFlightContext';
 
 function FlightList() { 
-  
-  const location = useLocation();
-  const { state } = location;
 
-  const { fromCity, toCity, departureDate, returnDate, travellers } = state || {};
+  const { fromCity, toCity, departureDate, returnDate, noOfTravellers, isComingFromSearch } = useContext(SearchFlightContext);
 
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -88,15 +87,15 @@ function FlightList() {
   });
   }
   return (
-    <>
+    <div >
       <div style={{ position:"relative"}}>
         <Transport text={"Flight Booking"}/>
         </div>
        <div style={{ position:"relative",marginTop:"2rem"}}>
-        <SearchBar />
+        <SearchBar/>
         </div>
         <div style={{marginTop: "3rem", marginBottom : "4rem"}}>
-          {returnFilteredFlights.length == 0 &&  filteredFlights.length == 0 && departureDate && <span style = {{textAlign : "center"}}><h1>No flights from {fromCity} to {toCity} on this date!</h1></span>} 
+          {returnFilteredFlights.length == 0 &&  filteredFlights.length == 0 && departureDate && <span style = {{textAlign : "center", fontFamily : "Roboto"}}><h1>No flights from {fromCity} to {toCity} on this date!</h1></span>} 
           {!returnDate && filteredFlights && <span>
           {filteredFlights.map((flight) => (
               <FlightCard key={flight.id} flightData={flight} />
@@ -106,7 +105,8 @@ function FlightList() {
               <ReturnFlightCard key={flight.id} flightData={flight} />
           ))}</span>}
         </div>
-    </>
+        {/* <FlightBookingUI/> */}
+    </div>
   );
 }
 

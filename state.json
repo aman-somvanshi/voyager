@@ -71,11 +71,17 @@
       "name": "Aman S",
       "email": "aman@gmail.com",
       "password": "aman123"
+    },
+    {
+      "id": "13",
+      "name": "Aditya",
+      "email": "aditya@gmail.com",
+      "password": "aditya123"
     }
   ],
   "hotels": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Luxury Grand Hotel",
       "city": "Meerut",
       "price": 150,
@@ -93,7 +99,7 @@
       "location": "Civil Lines, Meerut"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Comfort Inn Suites",
       "city": "Meerut",
       "price": 80,
@@ -111,7 +117,7 @@
       "location": "Delhi Road, Meerut"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "The Heritage Plaza",
       "city": "Delhi",
       "price": 120,
@@ -125,7 +131,7 @@
       "location": "Connaught Place, Delhi"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Sunshine Residency",
       "city": "Meerut",
       "price": 65,
@@ -145,7 +151,7 @@
   ],
   "flightData": [
     {
-      "id": 1,
+      "id": "1",
       "airline": "IndiGo",
       "flightNumber": "6E 2003",
       "departureTime": "07:15",
@@ -167,7 +173,7 @@
       "freeMeal": false
     },
     {
-      "id": 2,
+      "id": "2",
       "airline": "SpiceJet",
       "flightNumber": "SG 945",
       "departureTime": "18:40",
@@ -189,7 +195,7 @@
       "freeMeal": false
     },
     {
-      "id": 3,
+      "id": "3",
       "airline": "Air India",
       "flightNumber": "AI 469",
       "departureTime": "10:20",
@@ -211,7 +217,7 @@
       "freeMeal": true
     },
     {
-      "id": 4,
+      "id": "4",
       "airline": "Vistara",
       "flightNumber": "UK 812",
       "departureTime": "14:55",
@@ -233,7 +239,7 @@
       "freeMeal": true
     },
     {
-      "id": 5,
+      "id": "5",
       "airline": "Go First",
       "flightNumber": "G8 283",
       "departureTime": "22:10",
@@ -255,7 +261,7 @@
       "freeMeal": false
     },
     {
-      "id": 6,
+      "id": "6",
       "airline": "IndiGo",
       "flightNumber": "6E 7117",
       "departureTime": "09:00",
@@ -277,7 +283,7 @@
       "freeMeal": false
     },
     {
-      "id": 7,
+      "id": "7",
       "airline": "SpiceJet",
       "flightNumber": "SG 309",
       "departureTime": "16:25",
@@ -299,7 +305,7 @@
       "freeMeal": false
     },
     {
-      "id": 8,
+      "id": "8",
       "airline": "Air India",
       "flightNumber": "AI 805",
       "departureTime": "12:30",
@@ -321,7 +327,7 @@
       "freeMeal": true
     },
     {
-      "id": 9,
+      "id": "9",
       "airline": "Vistara",
       "flightNumber": "UK 971",
       "departureTime": "20:05",
@@ -343,7 +349,7 @@
       "freeMeal": true
     },
     {
-      "id": 10,
+      "id": "10",
       "airline": "Go First",
       "flightNumber": "G8 702",
       "departureTime": "14:00",
@@ -365,7 +371,7 @@
       "freeMeal": false
     },
     {
-      "id": 11,
+      "id": "11",
       "airline": "IndiGo",
       "flightNumber": "6E 5001",
       "departureTime": "11:30",
@@ -387,7 +393,7 @@
       "freeMeal": false
     },
     {
-      "id": 12,
+      "id": "12",
       "airline": "SpiceJet",
       "flightNumber": "SG 876",
       "departureTime": "19:35",
@@ -409,7 +415,7 @@
       "freeMeal": false
     },
     {
-      "id": 13,
+      "id": "13",
       "airline": "Air India",
       "flightNumber": "AI 642",
       "departureTime": "08:45",
@@ -431,7 +437,7 @@
       "freeMeal": true
     },
     {
-      "id": 14,
+      "id": "14",
       "airline": "Vistara",
       "flightNumber": "UK 709",
       "departureTime": "15:30",
@@ -453,7 +459,7 @@
       "freeMeal": true
     },
     {
-      "id": 15,
+      "id": "15",
       "airline": "Go First",
       "flightNumber": "G8 115",
       "departureTime": "21:45",
@@ -475,7 +481,7 @@
       "freeMeal": false
     },
     {
-      "id": 16,
+      "id": "16",
       "airline": "IndiGo",
       "flightNumber": "6E 2407",
       "departureTime": "06:30",
@@ -497,7 +503,7 @@
       "freeMeal": false
     },
     {
-      "id": 17,
+      "id": "17",
       "airline": "SpiceJet",
       "flightNumber": "SG 703",
       "departureTime": "17:10",
@@ -519,7 +525,7 @@
       "freeMeal": false
     },
     {
-      "id": 18,
+      "id": "18",
       "airline": "Air India",
       "flightNumber": "AI 502",
       "departureTime": "13:45",
@@ -543,7 +549,7 @@
   ],
   "returnFlightData": [
     {
-      "id": 1,
+      "id": "1",
       "airline": "IndiGo",
       "flightNumber": "6E 3021",
       "departureTime": "07:15",
@@ -570,10 +576,10 @@
       "secondFastest": false,
       "freeMeal": false,
       "offer": 650,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 2,
+      "id": "2",
       "airline": "SpiceJet",
       "flightNumber": "SG 1209",
       "departureTime": "18:40",
@@ -600,10 +606,10 @@
       "secondFastest": true,
       "freeMeal": false,
       "offer": 780,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 3,
+      "id": "3",
       "airline": "Air India",
       "flightNumber": "AI 554",
       "departureTime": "10:20",
@@ -630,10 +636,10 @@
       "secondFastest": false,
       "freeMeal": true,
       "offer": 550,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 4,
+      "id": "4",
       "airline": "Vistara",
       "flightNumber": "UK 412",
       "departureTime": "14:55",
@@ -660,10 +666,10 @@
       "secondFastest": true,
       "freeMeal": true,
       "offer": 750,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 5,
+      "id": "5",
       "airline": "Go First",
       "flightNumber": "G8 784",
       "departureTime": "22:10",
@@ -690,10 +696,10 @@
       "secondFastest": false,
       "freeMeal": false,
       "offer": 720,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 6,
+      "id": "6",
       "airline": "IndiGo",
       "flightNumber": "6E 7290",
       "departureTime": "09:00",
@@ -720,10 +726,10 @@
       "secondFastest": true,
       "freeMeal": false,
       "offer": 580,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 7,
+      "id": "7",
       "airline": "SpiceJet",
       "flightNumber": "SG 405",
       "departureTime": "16:25",
@@ -750,10 +756,10 @@
       "secondFastest": false,
       "freeMeal": false,
       "offer": 450,
-      "returnNextDay" : false
+      "returnNextDay": false
     },
     {
-      "id": 8,
+      "id": "8",
       "airline": "IndiGo",
       "flightNumber": "6E 3205",
       "departureTime": "06:45",
@@ -783,7 +789,7 @@
       "returnNextDay": false
     },
     {
-      "id": 9,
+      "id": "9",
       "airline": "Vistara",
       "flightNumber": "UK 2051",
       "departureTime": "09:30",
@@ -813,7 +819,7 @@
       "returnNextDay": false
     },
     {
-      "id": 10,
+      "id": "10",
       "airline": "Air India",
       "flightNumber": "AI 4078",
       "departureTime": "14:10",
@@ -843,7 +849,7 @@
       "returnNextDay": false
     },
     {
-      "id": 11,
+      "id": "11",
       "airline": "SpiceJet",
       "flightNumber": "SG 6032",
       "departureTime": "21:00",
@@ -876,39 +882,48 @@
   "dateOptions": [
     {
       "day": "Mon, 28 Apr",
-      "price": 6667
+      "price": 6667,
+      "id": "3c98"
     },
     {
       "day": "Tue, 29 Apr",
-      "price": 6457
+      "price": 6457,
+      "id": "20d1"
     },
     {
       "day": "Wed, 30 Apr",
-      "price": 5999
+      "price": 5999,
+      "id": "eabb"
     },
     {
       "day": "Thu, 01 May",
-      "price": 7349
+      "price": 7349,
+      "id": "4fcb"
     },
     {
       "day": "Fri, 02 May",
-      "price": 6037
+      "price": 6037,
+      "id": "d47c"
     },
     {
       "day": "Sat, 03 May",
-      "price": 6037
+      "price": 6037,
+      "id": "f5c2"
     },
     {
       "day": "Sun, 04 May",
-      "price": 6037
+      "price": 6037,
+      "id": "21f5"
     },
     {
       "day": "Mon, 05 May",
-      "price": 6299
+      "price": 6299,
+      "id": "eea6"
     },
     {
       "day": "Tue, 06 May",
-      "price": 6199
+      "price": 6199,
+      "id": "bc86"
     }
   ]
 }

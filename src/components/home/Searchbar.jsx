@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, use } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Searchbar.css';
 import QuoteChanger from './QuoteChanger';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { SearchFlightContext } from '../flights/SearchFlightContext';
+// import {FlightSearchContext} from '../flights/SearchFlightContext';
+
 
 const SearchBar = () => {
 
@@ -16,6 +19,9 @@ const SearchBar = () => {
   const [isRoundTripActive, setIsRoundTripActive] = useState(false);
   const [numberOfTravellers, setNumberOfTravellers] = useState('');
   const quotes=["24*7 Customer Support","Hassle-free-Bookings","Best Flights Offers"];
+  const navigate = useNavigate();
+  const {updateFlightSearch} = useContext(SearchFlightContext);
+  const isComingFromSearch = true;
 
   const handleOneWayClick = () => {
     setIsOneWayActive(true);
@@ -47,7 +53,6 @@ const SearchBar = () => {
   const handleToCityChange = (event) => {
     setToCity(event.target.value);
   };
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (departureDate && !returnDate) {
@@ -70,15 +75,16 @@ const SearchBar = () => {
       data = false;
     }
     if(data){
-    const formData = {
-      fromCity : fromCity,
-      toCity : toCity,
-      departureDate : departureDate,
-      returnDate : returnDate,
-      travellers : numberOfTravellers,
-      isRoundTripActive : isRoundTripActive//Do using contextapi
-    };
-    navigate('/flights', {state: formData});
+    // const formData = {
+    //   fromCity : fromCity,
+    //   toCity : toCity,
+    //   departureDate : departureDate,
+    //   returnDate : returnDate,
+    //   travellers : numberOfTravellers,
+    //   isRoundTripActive : isRoundTripActive
+    // };
+    updateFlightSearch(fromCity, toCity, departureDate, returnDate, parseInt(numberOfTravellers), true);
+    navigate('/flights');
     }
   }
 
