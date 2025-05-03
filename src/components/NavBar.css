@@ -50,7 +50,7 @@
   }
   
   .contact-form-submit-button {
-    background-color: #007bff; /* Bootstrap primary color */
+    /* background-color: #007bff; Bootstrap primary color */
     color: white;
     padding: 10px 15px;
     border: none;

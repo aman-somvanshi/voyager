@@ -147,7 +147,7 @@ function NavBar() {
                   <label htmlFor="message" className="form-label">Message:</label>
                   <textarea className="form-control" id="message" name="message" rows="3" required></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary contact-form-submit-button">Submit Inquiry</button>
+                <button type="submit" className="btn btn-danger contact-form-submit-button">Submit Inquiry</button>
               </form>
             </section>
             <p className="mt-3 contact-response-time">We aim to respond to all inquiries within 24-48 business hours.</p>

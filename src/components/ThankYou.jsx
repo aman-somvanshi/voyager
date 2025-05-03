@@ -23,7 +23,7 @@ const ThankYou = () => {
         <hr className="my-4" />
         <p>We appreciate you choosing our platform for your travel needs. You will receive a confirmation email shortly with your booking details.</p>
         <p>If you have any questions or need further assistance, please don't hesitate to contact our customer support.</p>
-        <button className="btn btn-primary btn-lg" onClick={() => navigate('/home')}>
+        <button className="btn btn-danger btn-lg" onClick={() => navigate('/home')} style={{marginTop : "10px"}}>
           Go to Homepage
         </button>
       </div>
