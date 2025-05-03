@@ -114,7 +114,6 @@ function FlightList() {
               <ReturnFlightCard key={flight.id} flightData={flight} />
           ))}</span>}
         </div>
-        {/* <FlightBookingUI/> */}
     </div>
   );
 }

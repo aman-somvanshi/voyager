@@ -5,7 +5,7 @@ import logo from './../../assets/Voyager_logo.png'
 
 function Footer() {
     return (
-        <footer id="footer" className="main-footer"> {/* Added id="footer" here */}
+        <footer id="footer" className="main-footer" >
             <div className="footer-container">
                 <section className="important-links">
                     <h3>Important Links</h3>

@@ -4,17 +4,28 @@ import { SearchFlightContext } from './SearchFlightContext';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAuth } from "../../auth/authContext";
 
-// const navigate = useNavigate();
 const FlightBookingPage = () => {
-  const { noOfTravellers: contextNoOfTravellers } = useContext(SearchFlightContext);
+  const { numberOfTravellers: contextNoOfTravellers } = useContext(SearchFlightContext);
   const location = useLocation();
   const { state } = location;
   const navigate = useNavigate();
-  const {user} = useAuth();
+  const { user } = useAuth();
   const [travellers, setTravellers] = useState(contextNoOfTravellers || 0);
   const [prompted, setPrompted] = useState(false);
   const hasCancelledOrInvalid = useRef(false);
-
+  const bookingData = state || {};
+  const [formData, setFormData] = useState({
+    name: user?.name || '',
+    age: '',
+    email: user?.email || '',
+    gender: '',
+    phoneNumber: '',
+  });
+  const [onTimePercentage, setOnTimePercentage] = useState(90);
+  const [terminalOne, setTerminalOne] = useState(1);
+  const [terminalTwo, setTerminalTwo] = useState(1);
+  const [terminalThree, setTerminalThree] = useState(1);
+  const [terminalFour, setTerminalFour] = useState(1);
 
   useEffect(() => {
     if (travellers === 0 && !prompted && !hasCancelledOrInvalid.current) {
@@ -38,8 +49,6 @@ const FlightBookingPage = () => {
     }
   }, [travellers, navigate, prompted]);
 
-  const bookingData = state || {};
-  // console.log(bookingData.returnFlightDate);  
   function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -47,20 +56,12 @@ const FlightBookingPage = () => {
   }
 
   function dateFormatting(dateString) {
-    if (!dateString) return ""; 
+    if (!dateString) return "";
     const [month, day, year] = dateString.split('-');
     const date = new Date(year, month - 1, day);
     const options = { weekday: 'short', day: '2-digit', month: 'short' };
     return date.toLocaleDateString('en-US', options);
   }
-  
-  const [formData, setFormData] = useState({
-    name: user?.name || '',
-    age: '',
-    email: user?.email || '',
-    gender: '',
-    phoneNumber: '',
-  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,16 +72,50 @@ const FlightBookingPage = () => {
   };
 
   const handleConfirmBooking = () => {
-    // console.log("HEllo world");
-    // event.preventDefault();
-    // navigate("/thankyou");
-   // You can add your form submission logic here
+    if (validateConfirmData()) {
+      navigate("/thankyou");
+    }
   };
-  
 
-    
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate a delay
+      const data = {
+        percentage: getRandom(70, 95),
+        terminalOne: getRandom(1, 4),
+        terminalTwo: getRandom(1, 4),
+        terminalThree: getRandom(1, 4),
+        terminalFour: getRandom(1, 4),
+      };
+      setOnTimePercentage(data.percentage);
+      setTerminalOne(data.terminalOne);
+      setTerminalTwo(data.terminalTwo);
+      setTerminalThree(data.terminalThree);
+      setTerminalFour(data.terminalFour);
+    };
 
+    fetchData();
+  }, []);
 
+  function validateConfirmData() {
+    if (formData.age < 3 || formData.age > 99 || formData.age === '') {
+      window.alert("Age is invalid");
+      return false;
+    }
+    if (formData.gender === '') {
+      window.alert("Gender can't be empty");
+      return false;
+    }
+    if (formData.phoneNumber === '') {
+      window.alert("Phone number can't be empty");
+      return false;
+    }
+    if (formData.phoneNumber.toString().length < 10) { // Assuming a minimum length for phone number
+      window.alert("Phone number is invalid");
+      return false;
+    }
+    return true;
+  }
 
   return (
     <div className="container mt-4" style={{ backgroundColor: "#ffffff", color: "#000000" }}>
@@ -108,9 +143,9 @@ const FlightBookingPage = () => {
             <br />
 
             <div className="d-flex justify-content-between align-items-center">
-              <div> 
+              <div>
                 <h5 className="text-dark"><span>{bookingData.airline} | {bookingData.flightNumber}</span><span><span>{bookingData.returnFlightDate && <span> | </span>}</span>{bookingData.returnFlightNumber}</span> </h5>
-                <p className="text-dark">⏳ <strong>{getRandom(70, 95)}% On-time</strong></p>
+                <p className="text-dark">⏳ <strong>{onTimePercentage}% On-time</strong></p>
               </div>
               <div>
                 <p className="text-dark">
@@ -129,24 +164,24 @@ const FlightBookingPage = () => {
                 <p className="text-dark">
                   <strong>{bookingData.originCity} International Airport</strong>
                 </p>
-                <p className="text-dark">Terminal {getRandom(1, 4)}</p>
+                <p className="text-dark">Terminal {terminalOne}</p>
                 <div>{bookingData.returnFlightDate && <span>
                   <p className="text-dark">
                     <strong>{bookingData.destinationCity} International Airport</strong>
                   </p>
-                  <p className="text-dark">Terminal {getRandom(1, 4)}</p></span>}
+                  <p className="text-dark">Terminal {terminalTwo}</p></span>}
                 </div>
               </div>
               <div>
                 <p className="text-dark">
                   <strong>{bookingData.destinationCity} International Airport</strong>
                 </p>
-                <p className="text-dark">Terminal {getRandom(1, 4)}</p>
+                <p className="text-dark">Terminal {terminalThree}</p>
                 <div>{bookingData.returnFlightDate && <span>
-                <p className="text-dark">
-                  <strong>{bookingData.originCity}  International Airport</strong>
-                </p>
-                <p className="text-dark">Terminal {getRandom(1, 4)}</p></span>}
+                  <p className="text-dark">
+                    <strong>{bookingData.originCity} International Airport</strong>
+                  </p>
+                  <p className="text-dark">Terminal {terminalFour}</p></span>}
                 </div>
               </div>
             </div>
@@ -164,26 +199,29 @@ const FlightBookingPage = () => {
         {/* Right Side - Pricing and Coupons */}
         <div className="col-md-4">
           <div className="card bg-white text-dark border-dark p-4">
-            <h3 className="text-dark" style={{fontFamily : "Roboto"}}>Total Price </h3>
-            <div style={{display : "flex"}}>
-              <div style={{fontFamily : "Roboto", marginRight:"15px"}}>
+            <h3 className="text-dark" style={{ fontFamily: "Roboto" }}>Total Price </h3>
+            <div style={{ display: "flex" }}>
+              <div style={{ fontFamily: "Roboto", marginRight: "15px" }}>
                 <h3 className="text-danger">₹{bookingData.price * travellers - bookingData.discount * travellers}</h3>
-                <p className="text-dark">{travellers} {travellers == 1 && <span>Adult</span>}{travellers > 1 && <span>Adults</span>}</p>
+                <p className="text-dark">{travellers} {travellers === 1 ? <span>Adult</span> : <span>Adults</span>}</p>
               </div>
               <div>
                 <hr className="border-dark" />
               </div>
-              <div style={{paddingLeft : "30px"}}>
-              • Inclusive of all taxes 
-              <br />
-              <div >• {((bookingData.price - (bookingData.price * (.056) + bookingData.price * (.05))) * .056) * travellers} (5.6%)<span style={{marginLeft:"20px"}}> Service tax</span></div> 
-              <span >• {((bookingData.price - (bookingData.price * (.056) + bookingData.price * (.05))) * .05) * travellers} (5%) GST</span> 
+              <div style={{ paddingLeft: "30px" }}>
+                • Inclusive of all taxes
+                <br />
+                <div>• ₹{(((bookingData.price - (bookingData.price * 0.056 + bookingData.price * 0.05)) * 0.056) * travellers).toFixed(2)} (5.6%)<span style={{ marginLeft: "20px" }}> Service tax</span></div>
+                <span>• ₹{(((bookingData.price - (bookingData.price * 0.056 + bookingData.price * 0.05)) * 0.05) * travellers).toFixed(2)} (5%) GST</span>
               </div>
             </div>
             <hr className="border-dark" />
             <div className="container mt-4">
               <h3>User Information</h3>
-              <form onSubmit={handleConfirmBooking()}>
+              <form onSubmit={(e) => {
+                e.preventDefault(); // Prevent default form submission
+                handleConfirmBooking();
+              }}>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name:
@@ -206,6 +244,8 @@ const FlightBookingPage = () => {
                     className="form-control"
                     id="age"
                     name="age"
+                    min={3}
+                    max={99}
                     value={formData.age}
                     onChange={handleChange}
                   />
@@ -253,23 +293,10 @@ const FlightBookingPage = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <button className="btn btn-danger mb-3" type="submit" style={{width : "100%", marginLeft:"0px", height:"45px", fontFamily:"Roboto"}} onClick={() =>  navigate('/thankyou')} >
-                Confirm Booking</button>
+                <button className="btn btn-danger mb-3" type="submit" style={{ width: "100%", marginLeft: "0px", height: "45px", fontFamily: "Roboto" }}>
+                  Confirm Booking</button>
               </form>
             </div>
-            
-
-            {/* <h6 className="text-dark">Apply Coupon or Gift Card</h6>
-            <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Enter coupon code" />
-              <button className="btn btn-danger">Apply</button>
-            </div> */}
-
-            {/* <h6 className="text-dark">All Offers & Bank Discounts</h6>
-            <div className="p-3 bg-light rounded border-dark">
-              <p className="text-dark"><strong>CTDOM</strong> - Flat ₹200 off</p>
-              <p className="text-dark">Additional 5% cashback with Flipkart Axis Credit Card <a href="#">Know more</a></p> */}
-            {/* </div> */}
           </div>
         </div>
       </div>

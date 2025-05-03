@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FlightCard.css'; // Make sure this CSS file exists and has the styles
+import './FlightCard.css';
 import flightBookingPage from "./FlightBookingPage";
 
 function FlightCard({ flightData}) {
@@ -22,12 +22,9 @@ function FlightCard({ flightData}) {
   return (
     <div className="flight-card">
       <div className="airline-info">
-        {/* You might want to have a mapping of airline names to logos */}
-        {/* <img src={`/logos/${flight.airline.toLowerCase().replace(' ', '-')}.png`} alt={flight.airline} className="airline-logo" /> */}
         <span className="airline-name">{flightData.airline}</span>
         <span className="flight-number">{flightData.flightNumber}</span>
         {flightData.freeMeal && <span className="free-meal-tag">Free Meal</span>}
-        {/* {flightData.secondFastest && <span className="second-fastest-tag">2nd Fastest</span>} */}
         {flightData.recommended && <span className="recommended-tag">Recommended</span>}
       </div>
       <div className="departure-time">

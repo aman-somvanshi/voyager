@@ -4,11 +4,11 @@ import {createContext, useState} from "react";
 export const SearchFlightContext = createContext();
 
 export const FlightContextProvider = ({ children }) => {
-    const [fromCity, setFromCity] = useState("");
-    const [toCity, setToCity] = useState("");
-    const [departureDate, setDepartureDate] = useState(null);
-    const [returnDate, setReturnDate] = useState(null);
-    const [numberOfTravellers, setNumberOfTravellers] = useState('');
+  const [fromCity, setFromCity] = useState("");
+  const [toCity, setToCity] = useState("");
+  const [departureDate, setDepartureDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
+  const [numberOfTravellers, setNumberOfTravellers] = useState('');
 
   const updateFlightSearch = (fromCity, toCity, departureDate, returnDate, numberOfTravellers) => {
     setFromCity(fromCity);
