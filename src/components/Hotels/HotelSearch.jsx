@@ -46,6 +46,25 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
       return;
     }
 
+    const maxAllowedDate = new Date();
+    maxAllowedDate.setMonth(maxAllowedDate.getMonth() + 3);
+
+    if (checkIn > maxAllowedDate || checkOut > maxAllowedDate) {
+      alert('Bookings can only be made up to 3 months in advance.');
+      return;
+    }
+
+    const dayDifference = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+    if (dayDifference > 10) {
+      alert('Maximum booking duration is 10 days.');
+      return;
+    }
+
+    if (guests < 1 || guests > 15) {
+      alert('Number of rooms must be between 1 and 15.');
+      return;
+    }
+
     updateSearch(destination, checkIn, checkOut, parseInt(guests, 10) || 1);
     navigate('/hotel-results');
   };
@@ -79,6 +98,7 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
             className="date"
             id="departure"
             minDate={new Date()}
+            maxDate={new Date(new Date().setMonth(new Date().getMonth() + 3))} // 3 months limit
           />
           <label htmlFor="return" className="form-label"></label>
           <DatePicker
@@ -87,16 +107,28 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
             placeholderText="Check-Out"
             className="date"
             id="return"
-            minDate={new Date()}
+            minDate={checkIn}
+            maxDate={
+              checkIn
+                ? new Date(
+                    Math.min(
+                      new Date(checkIn.getTime() + 10 * 24 * 60 * 60 * 1000).getTime(), // check-in + 10 days
+                      new Date(new Date().setMonth(new Date().getMonth() + 3)).getTime() // 3 months limit
+                    )
+                  )
+                : new Date(new Date().setMonth(new Date().getMonth() + 3))
+            }
           />
           <label htmlFor="travellers" className="form-label"></label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="travellers"
             placeholder="Rooms"
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
+            min="1"
+            max="15"
             required
           />
           <button type="button" className="btn btn-outline-danger button btn-lg" onClick={handleSearch}>Search</button>
