@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './BookingPage.css';
 import { SearchContext } from '../Hotels/SearchContext';
 import { useAuth } from '../../auth/authContext';
@@ -10,33 +12,56 @@ const BookingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const hotelName = location.state?.hotelName || 'Hotel Details';
-  const { checkInDate, checkOutDate, guests, selectedHotelImage } = useContext(SearchContext); // Access selectedHotelImage
-  const [bookingData, setBookingData] = useState({});
-  const [loading, setLoading] = useState(true);
+  const { checkInDate, checkOutDate, guests: initialGuests, selectedHotelImage } = useContext(SearchContext);
 
+  const [checkIn, setCheckIn] = useState(checkInDate || null);
+  const [checkOut, setCheckOut] = useState(checkOutDate || null);
+  const [guests, setGuests] = useState(initialGuests || '');
   const [bookingName, setBookingName] = useState(user?.name || '');
   const [bookingEmail, setBookingEmail] = useState(user?.email || '');
 
-  const formatDateForInput = (date) => {
-    if (!date) return '';
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  };
-  const checkInFormatted = formatDateForInput(checkInDate);
-  const checkOutFormatted = formatDateForInput(checkOutDate);
-
   const handleBooking = async (e) => {
     e.preventDefault();
-  
-    const hotelId = id;
+
+    // === Validation Start ===
+    if (!checkInDate || !checkOutDate || !guests || !bookingName || !bookingEmail) {
+      alert('Please fill in all the fields.');
+      return;
+    }
+
+    if (checkOut <= checkIn) {
+      alert('Check-out date must be after check-in date.');
+      return;
+    }
+
+    const maxAllowedDate = new Date();
+    maxAllowedDate.setMonth(maxAllowedDate.getMonth() + 3);
+
+    if (checkIn > maxAllowedDate || checkOut > maxAllowedDate) {
+      alert('Bookings can only be made up to 3 months in advance.');
+      return;
+    }
+
+    const dayDifference = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+    if (dayDifference > 10) {
+      alert('Maximum booking duration is 10 days.');
+      return;
+    }
+
+    const numRooms = parseInt(guests);
+    if (numRooms < 1 || numRooms > 15) {
+      alert('Number of rooms must be between 1 and 15.');
+      return;
+    }
+    // === Validation End ===
+    
     try {
-      const response = await fetch(`http://localhost:3001/hotelBooking/${hotelId}`);
+      const response = await fetch(`http://localhost:3001/hotelBooking/${id}`);
       if (!response.ok) throw new Error("Hotel data not found");
   
       const hotelData = await response.json();
       const existingBookings = hotelData.bookings || {};
+      const totalRooms = hotelData.totalRooms;
   
       // Generate all dates between checkIn and checkOut (exclusive of checkout)
       const datesToBook = [];
@@ -55,11 +80,11 @@ const BookingPage = () => {
       }
   
       // Check availability
-      console.log(datesToBook);
       for (const date of datesToBook) {
-        const booked = existingBookings[date] || 0;
-        if (booked >= hotelData.totalRooms) {
-          alert(`No rooms available on ${date}. Please choose different dates.`);
+        const bookedRooms = existingBookings[date] || 0;
+        const available = totalRooms - bookedRooms;
+        if (numRooms > available) {
+          alert(`Only ${available} room(s) available on ${date}. Please reduce your selection.`);
           return;
         }
       }
@@ -67,11 +92,11 @@ const BookingPage = () => {
       // Update bookings
       const updatedBookings = { ...existingBookings };
       for (const date of datesToBook) {
-        updatedBookings[date] = (updatedBookings[date] || 0) + 1;
+        updatedBookings[date] = (updatedBookings[date] || 0) + numRooms;
       }
   
       // PATCH updated bookings
-      await fetch(`http://localhost:3001/hotelBooking/${hotelId}`, {
+      await fetch(`http://localhost:3001/hotelBooking/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -94,43 +119,75 @@ const BookingPage = () => {
         <h1 className="hname">Booking for {hotelName}</h1>
         <p>Please fill in your booking details below:</p>
 
-        <form className="booking-form">
+        <form className="booking-form" onSubmit={handleBooking}>
           <div className="form-group">
-            <label htmlFor="checkInDate">Check-in Date:</label>
-            <input
-              type="date"
-              id="checkInDate"
-              name="checkInDate"
-              defaultValue={checkInFormatted}
+            <label>Check-in Date:</label>
+            <DatePicker
+              selected={checkIn}
+              onChange={(date) => setCheckIn(date)}
+              minDate={new Date()}
+              maxDate={new Date(new Date().setMonth(new Date().getMonth() + 3))}
+              className="date"
+              placeholderText="Check-In"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="checkOutDate">Check-out Date:</label>
-            <input
-              type="date"
-              id="checkOutDate"
-              name="checkOutDate"
-              defaultValue={checkOutFormatted}
+            <label>Check-out Date:</label>
+            <DatePicker
+              selected={checkOut}
+              onChange={(date) => setCheckOut(date)}
+              minDate={checkIn}
+              maxDate={
+                checkIn
+                  ? new Date(
+                      Math.min(
+                        new Date(checkIn.getTime() + 10 * 24 * 60 * 60 * 1000).getTime(),
+                        new Date(new Date().setMonth(new Date().getMonth() + 3)).getTime()
+                      )
+                    )
+                  : new Date(new Date().setMonth(new Date().getMonth() + 3))
+              }
+              className="date"
+              placeholderText="Check-Out"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="guests">Number of Guests:</label>
-            <input type="number" id="guests" name="guests" min="1" defaultValue={guests} />
+            <label>Number of Rooms:</label>
+            <input
+              type="number"
+              min="1"
+              max="15"
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label htmlFor="name">Your Name:</label>
-            <input type="text" id="name" name="name" value={bookingName} onChange={(e) => setName(e.target.value)} />
+            <label>Your Name:</label>
+            <input
+              type="text"
+              value={bookingName}
+              onChange={(e) => setBookingName(e.target.value)}
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Your Email:</label>
-            <input type="email" id="email" name="email" value={bookingEmail} onChange={(e) => setEmail(e.target.value)}/>
+            <label>Your Email:</label>
+            <input
+              type="email"
+              value={bookingEmail}
+              onChange={(e) => setBookingEmail(e.target.value)}
+              required
+            />
           </div>
 
-          <button type="submit" className="submit-booking-button" onClick={handleBooking}>
+          <button type="submit" className="submit-booking-button">
             Confirm Booking
           </button>
         </form>
