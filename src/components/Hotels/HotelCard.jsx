@@ -10,7 +10,7 @@ const HotelCard = ({ hotel }) => {
 
   const handleBookNowClick = () => {
     setSelectedHotelImage(hotel.imageUrl); // Store the image URL in the context
-    navigate(`/booking/${hotel.id}`, { state: { hotelName: hotel.name } });
+    navigate(`/booking/${hotel.id}`, { state: { hotelName: hotel.name, hotelImage: hotel.imageUrl } });
   };
   
   return (

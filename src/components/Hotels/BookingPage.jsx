@@ -13,7 +13,8 @@ const BookingPage = () => {
   const navigate = useNavigate();
   const hotelName = location.state?.hotelName || 'Hotel Details';
   const { checkInDate, checkOutDate, guests: initialGuests, selectedHotelImage } = useContext(SearchContext);
-
+  const hotelImage = location.state?.hotelImage || selectedHotelImage;
+  console.log("Hotel Image:", hotelImage);
   const [checkIn, setCheckIn] = useState(checkInDate || null);
   const [checkOut, setCheckOut] = useState(checkOutDate || null);
   const [guests, setGuests] = useState(initialGuests || '');
@@ -193,7 +194,8 @@ const BookingPage = () => {
         </form>
       </div>
       <div className="booking-image-right">
-        {selectedHotelImage && <img src={selectedHotelImage} alt={hotelName} className="hotel-image" />}
+        {hotelImage ? ( <img src={hotelImage} alt={hotelName} className="hotel-image" onError={(e) => console.error('Image failed to load :' , e.target.src )} /> )
+        : (<p>No image available</p>)}
       </div>
     </div>
   );
