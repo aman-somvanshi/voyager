@@ -101,7 +101,7 @@
       "city": "Mumbai",
       "price": 80,
       "roomsAvailable": 10,
-      "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+      "imageUrl": "./src/assets/HotelImages/Hotel2.jpeg",
       "location": "Delhi Road, Meerut"
     },
     {
@@ -110,7 +110,7 @@
       "city": "Mumbai",
       "price": 120,
       "roomsAvailable": 3,
-      "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+      "imageUrl": "./src/assets/HotelImages/Hotel3.jpeg",
       "location": "Connaught Place, Delhi"
     },
     {
@@ -119,7 +119,7 @@
       "city": "Chennai",
       "price": 65,
       "roomsAvailable": 8,
-      "imageUrl": "./src/assets/HotelImages/Hotel1.jpeg",
+      "imageUrl": "./src/assets/HotelImages/Hotel4.jpeg",
       "location": "Garh Road, Meerut"
     }
   ],

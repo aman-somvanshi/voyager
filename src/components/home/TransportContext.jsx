@@ -5,8 +5,8 @@ const TransportContext = createContext();
  
 export const TravelModeProvider = ({ children }) => {
   const [selectedMode, setSelectedMode] = useState(null);
-  const [isActiveFlight, setIsActiveFlight] = useState(false);
-  const [isActiveHotel, setIsActiveHotel] = useState(false);
+  let [isActiveFlight, setIsActiveFlight] = useState(false);
+  let [isActiveHotel, setIsActiveHotel] = useState(false);
 
     if(selectedMode === "flights"){
      isActiveFlight = true;

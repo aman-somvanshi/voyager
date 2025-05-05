@@ -193,6 +193,7 @@ const FlightBookingPage = () => {
               <p className="text-dark">📌 Cabin: <strong>7 kg per adult</strong></p>
               <p className="text-dark">📌 Check-in: <strong>15 kg per luggage, 1 luggage per adult</strong></p>
             </div>
+            <img src="./src/assets/aeroplane.jpg" styles={{width:"50px"}}/>
           </div>
         </div>
 
@@ -233,6 +234,7 @@ const FlightBookingPage = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    placeholder="Name"
                   />
                 </div>
                 <div className="mb-3">
@@ -248,6 +250,7 @@ const FlightBookingPage = () => {
                     max={99}
                     value={formData.age}
                     onChange={handleChange}
+                    placeholder="Age"
                   />
                 </div>
                 <div className="mb-3">
@@ -261,6 +264,7 @@ const FlightBookingPage = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    placeholder="Email"
                   />
                 </div>
                 <div className="mb-3">
@@ -291,9 +295,24 @@ const FlightBookingPage = () => {
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleChange}
+                    placeholder="PhoneNumber"
                   />
                 </div>
-                <button className="btn btn-danger mb-3" type="submit" style={{ width: "100%", marginLeft: "0px", height: "45px", fontFamily: "Roboto" }}>
+                <div className="mb-3">
+                  <label htmlFor="nationality" className="form-label">
+                    Nationality:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="Nationality"
+                  />
+                </div>
+                <button className="btn btn-danger mb-3" type="submit" style={{ width: "100%", marginLeft: "0px", marginTop:"2.5rem" ,height: "45px", fontFamily: "Roboto" }}>
                   Confirm Booking</button>
               </form>
             </div>

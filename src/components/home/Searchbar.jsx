@@ -10,7 +10,6 @@ import { SearchFlightContext } from '../flights/SearchFlightContext';
 
 
 const SearchBar = () => {
-
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");
   const [departureDate, setDepartureDate] = useState(null);

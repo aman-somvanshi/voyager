@@ -8,7 +8,7 @@ import './HotelResults.css';
 import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const HotelResults = () => {
-  const { destination,checkInDate,checkOutDate,guests,} = useContext(SearchContext);
+  const { destination,checkInDate,checkOutDate,guests,selectedHotelImage} = useContext(SearchContext);
   const { hotels, loading, error } = useContext(HotelContext);
 
   if (loading) {
@@ -36,7 +36,8 @@ const HotelResults = () => {
         initialDestination={destination}
         initialCheckIn={checkInDate} // No longer needed for filtering here
          initialCheckOut={checkOutDate} // No longer needed for filtering here
-         initialGuests={guests}     // Might still be used for the search input
+         initialGuests={guests} 
+         initialImg={selectedHotelImage}    // Might still be used for the search input
       />
       <div className="hotel-results">
         <h2 className="available">Available Hotels in {destination || 'All Destinations'}</h2>
