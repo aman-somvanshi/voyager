@@ -20,6 +20,7 @@ const FlightBookingPage = () => {
     email: user?.email || '',
     gender: '',
     phoneNumber: '',
+    nationality : ''
   });
   const [onTimePercentage, setOnTimePercentage] = useState(90);
   const [terminalOne, setTerminalOne] = useState(1);
@@ -305,9 +306,9 @@ const FlightBookingPage = () => {
                   <input
                     type="text"
                     className="form-control"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
+                    id="nationality"
+                    name="nationality"
+                    value={formData.nationality}
                     onChange={handleChange}
                     placeholder="Nationality"
                   />
