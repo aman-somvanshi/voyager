@@ -9,10 +9,10 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
-  const { register } = useAuth();
+  const { register, error, setError } = useAuth();
 
   const styles = {
     formGroup: {
@@ -79,7 +79,7 @@ const RegisterForm = () => {
       } else {
         // The register function in authContext.js should handle setting the error state.
         //  We don't need to do it here, but we could add a generic error message
-        setError('Registration failed.');
+        // setError('Registration failed.');
       }
     } catch (err) {
       setError(err.message || 'An unexpected error occurred.'); // Display error from context

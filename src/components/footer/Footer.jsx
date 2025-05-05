@@ -14,7 +14,6 @@ function Footer() {
                         <li><a href="https://www.ixigo.com/trains/tatkal-railway-reservation">Tatkal Railway Reservation</a></li>
                         <li><a href="https://vandebharatexpress.co.in/">Vande Bharat Express</a></li>
                         <li><a href="https://contents.irctc.co.in/en/eticketCancel.html">IRCTC Cancellation Charges</a></li>
-                        <li><a href="#">Travel Stories</a></li>
                     </ul>
                 </section>
 

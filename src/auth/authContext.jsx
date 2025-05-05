@@ -90,6 +90,13 @@ export const AuthProvider = ({ children }) => {
             throw new Error("Failed to fetch existing users");
         }
         const existingUsers = await getUsersResponse.json();
+
+        // Check if the email already exists
+        const emailExists = existingUsers.some(user => user.email === email);
+        if (emailExists) {
+          setError('An account with this email already exists.');
+          return null; // Indicate registration failure
+        }
         const nextId = String(existingUsers.length + 1);
 
         const response = await fetch('http://localhost:3000/users', {
@@ -114,7 +121,7 @@ export const AuthProvider = ({ children }) => {
 }
 
   return (
-    <AuthContext.Provider value={{ user, loading, error, login, logout, register }}>
+    <AuthContext.Provider value={{ user, loading, error, setError, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

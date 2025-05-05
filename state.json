@@ -83,6 +83,12 @@
       "name": "Shivani Rajput",
       "email": "shivani@gmail.com",
       "password": "shivani123"
+    },
+    {
+      "id": "15",
+      "name": "Aman Somvanshi",
+      "email": "aman@gmail.com",
+      "password": "aman123"
     }
   ],
   "hotels": [
@@ -541,7 +547,7 @@
       "returnDepartureTime": "18:00",
       "returnArrivalTime": "20:15",
       "returnDuration": 135,
-      "returnFormattedDuration" : "2h 15m",
+      "returnFormattedDuration": "2h 15m",
       "returnStops": 0,
       "returnFlightDate": "05-10-2025",
       "price": 9700,

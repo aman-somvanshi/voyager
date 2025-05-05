@@ -28,16 +28,6 @@ function PreFooter() {
     "  <li class='airline-status-item'><a href='#' class='airline-link'>IndiGo Flight Status</a></li>\n" +
     "  <li class='airline-status-item'><a href='#' class='airline-link'>Vistara Flight Status</a></li>\n" +
     "</ul>",
-    // "<h2>International Flights on Voyager</h2>",
-    // "<p>Our helpful filters will assist in finding a suitable international destination for your next vacation. Get personalised recommendations on international flight ticket booking and hotels. All your travel needs are fulfilled in a few seconds.</p>",
-    // "<p>Here are some trending international destinations from popular Indian cities:</p>",
-    // "<table class='useful-links-table'>"+
-    // "  <tr> <td><a href='#' class='international-flight-link'>Delhi to Canada Flights</a></td><td><a href='#' class='international-flight-link'>Delhi to Malaysia Flights</a></td></tr>"+
-    // "  <tr><td><a href='#' class='international-flight-link'>Delhi to Thailand Flights</a></td><td><a href='#' class='international-flight-link'>Delhi to Nepal Flights</a></td></tr>"+
-    // "  <tr><td><a href='#' class='international-flight-link'>Mumbai to Thailand Flights</a></td><td><a href='#' class='international-flight-link'>Delhi to Turkey Flights</a></td></tr>"+
-    // "  <tr><td><a href='#' class='international-flight-link'>Mumbai to Canada Flights</a></td><td><a href='#' class='international-flight-link'>Mumbai to Turkey Flights</a></td></tr>"+
-    // "  <tr><td><a href='#' class='international-flight-link'>Delhi to Vietnam Flights</a></td><td><a href='#' class='international-flight-link'>Mumbai to Vietnam Flights</a></td></tr>"+
-    // "</table>",
     "<h2>Online bus booking on Voyager</h2>",
     "<p>Voyager has made online bus booking completely easy, There is a joyful and straightforward booking process: Enter details- To and from cities, date and the number of bus tickets. Choose from a wide variety of buses suited for every budget.</p>",
     "<h2>Indian Railway Reservation on Voyager</h2>",
