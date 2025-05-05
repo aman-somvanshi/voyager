@@ -5,27 +5,34 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './BookingPage.css';
 import { SearchContext } from '../Hotels/SearchContext';
 import { useAuth } from '../../auth/authContext';
+import { HotelContext } from './HotelContext';
 
 const BookingPage = () => {
   const {user} = useAuth();
   const { id } = useParams();
+  const {hotels} = useContext(HotelContext);
   const location = useLocation();
   const navigate = useNavigate();
   const hotelName = location.state?.hotelName || 'Hotel Details';
-  const { checkInDate, checkOutDate, guests: initialGuests, selectedHotelImage } = useContext(SearchContext);
+  const { checkInDate, checkOutDate, guests, selectedHotelImage } = useContext(SearchContext);
   const hotelImage = location.state?.hotelImage || selectedHotelImage;
   console.log("Hotel Image:", hotelImage);
   const [checkIn, setCheckIn] = useState(checkInDate || null);
   const [checkOut, setCheckOut] = useState(checkOutDate || null);
-  const [guests, setGuests] = useState(initialGuests || '');
   const [bookingName, setBookingName] = useState(user?.name || '');
   const [bookingEmail, setBookingEmail] = useState(user?.email || '');
+
+  const hotel = hotels.find(h => h.id === id);
+  const numRooms = parseInt(guests);
+  const totalPrice = hotel.price * numRooms;
+
+  let availableRooms = 0;
 
   const handleBooking = async (e) => {
     e.preventDefault();
 
     // === Validation Start ===
-    if (!checkInDate || !checkOutDate || !guests || !bookingName || !bookingEmail) {
+    if (!checkIn || !checkOut || !guests || !bookingName || !bookingEmail) {
       alert('Please fill in all the fields.');
       return;
     }
@@ -49,7 +56,6 @@ const BookingPage = () => {
       return;
     }
 
-    const numRooms = parseInt(guests);
     if (numRooms < 1 || numRooms > 15) {
       alert('Number of rooms must be between 1 and 15.');
       return;
@@ -67,8 +73,8 @@ const BookingPage = () => {
       // Generate all dates between checkIn and checkOut (exclusive of checkout)
       const datesToBook = [];
       
-      const current = new Date(checkInDate);
-      const end = new Date(checkOutDate);
+      const current = new Date(checkIn);
+      const end = new Date(checkOut);
 
       // Force time to 00:00:00 to avoid timezone shifts
       current.setHours(0, 0, 0, 0);
@@ -84,6 +90,7 @@ const BookingPage = () => {
       for (const date of datesToBook) {
         const bookedRooms = existingBookings[date] || 0;
         const available = totalRooms - bookedRooms;
+        availableRooms = available;
         if (numRooms > available) {
           alert(`Only ${available} room(s) available on ${date}. Please reduce your selection.`);
           return;
@@ -111,6 +118,8 @@ const BookingPage = () => {
       alert("Booking could not be completed.");
     }
   };
+
+  console.log("No. of rooms" + guests);
   
   
 
@@ -163,7 +172,7 @@ const BookingPage = () => {
               min="1"
               max="15"
               value={guests}
-              onChange={(e) => setGuests(e.target.value)}
+              onChange={(e) => setGuests(parseInt(e.target.value))}
               required
             />
           </div>
@@ -188,14 +197,25 @@ const BookingPage = () => {
             />
           </div>
 
-          <button type="submit" className="submit-booking-button">
+          <button type="submit" className="submit-booking-button"
+          disabled={!guests || guests < 1 }>
             Confirm Booking
           </button>
+          {!guests || guests < 1 ? (
+            <p style={{ color: 'red' }}>
+              Please enter a valid number of rooms
+            </p>
+          ) : null}
         </form>
       </div>
-      <div className="booking-image-right">
-        {hotelImage ? ( <img src={hotelImage} alt={hotelName} className="hotel-image" onError={(e) => console.error('Image failed to load :' , e.target.src )} /> )
-        : (<p>No image available</p>)}
+      <div className="booking-image-total-container">
+        <div className="booking-image-right" >
+          {hotelImage ? ( <img src={hotelImage} alt={hotelName} className="hotel-image" onError={(e) => console.error('Image failed to load :' , e.target.src )} /> )
+          : (<p>No image available</p>)}
+        </div>
+        <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '20px' }}>
+          Total Cost: ₹{totalPrice}
+        </div>
       </div>
     </div>
   );
