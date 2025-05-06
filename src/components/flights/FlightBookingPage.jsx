@@ -194,7 +194,6 @@ const FlightBookingPage = () => {
               <p className="text-dark">📌 Cabin: <strong>7 kg per adult</strong></p>
               <p className="text-dark">📌 Check-in: <strong>15 kg per luggage, 1 luggage per adult</strong></p>
             </div>
-            <img src="./src/assets/aeroplane.jpg" styles={{width:"50px"}}/>
           </div>
         </div>
 
@@ -325,3 +324,5 @@ const FlightBookingPage = () => {
 };
 
 export default FlightBookingPage;
+
+// <img src="./src/assets/aeroplane.jpg" styles={{width:"50px"}}/>
