@@ -89,6 +89,12 @@
       "name": "Aman Somvanshi",
       "email": "aman@gmail.com",
       "password": "aman123"
+    },
+    {
+      "id": "16",
+      "name": "Walter White",
+      "email": "aman123@gmail.com",
+      "password": "Aman@123"
     }
   ],
   "hotels": [

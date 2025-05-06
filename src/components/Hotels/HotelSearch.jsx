@@ -7,16 +7,16 @@ import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, initialGuests }) => {
   const [destination, setDestination] = useState(initialDestination || '');
-  const [checkIn, setCheckIn] = useState(initialCheckIn || null);
-  const [checkOut, setCheckOut] = useState(initialCheckOut || null);
-  const [guests, setGuests] = useState(initialGuests || '');
+  // const [checkIn, setCheckIn] = useState(initialCheckIn || null);
+  // const [checkOut, setCheckOut] = useState(initialCheckOut || null);
+  const {guests, setGuests, checkInDate, checkOutDate, setCheckInDate, setCheckOutDate} = useContext(SearchContext);
   const navigate = useNavigate();
   const { updateSearch } = useContext(SearchContext);
   // Update local state when props change (for cases where the component might re-render)
   useEffect(() => {
     setDestination(initialDestination || '');
-    setCheckIn(initialCheckIn || null);
-    setCheckOut(initialCheckOut || null);
+    setCheckInDate(initialCheckIn || null);
+    setCheckOutDate(initialCheckOut || null);
     setGuests(initialGuests || '');
   }, [initialDestination, initialCheckIn, initialCheckOut, initialGuests]);
   const cities = [
@@ -36,12 +36,12 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
   };
 
   const handleSearch = () => {
-    if (!destination || !checkIn || !checkOut || !guests) {
+    if (!destination || !checkInDate || !checkOutDate || !guests) {
       alert('Please fill in all the fields.');
       return;
     }
 
-    if (checkOut <= checkIn) {
+    if (checkOutDate <= checkInDate) {
       alert('Check-out date must be after check-in date.');
       return;
     }
@@ -49,12 +49,12 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
     const maxAllowedDate = new Date();
     maxAllowedDate.setMonth(maxAllowedDate.getMonth() + 3);
 
-    if (checkIn > maxAllowedDate || checkOut > maxAllowedDate) {
+    if (checkInDate > maxAllowedDate || checkOutDate > maxAllowedDate) {
       alert('Bookings can only be made up to 3 months in advance.');
       return;
     }
 
-    const dayDifference = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+    const dayDifference = (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24);
     if (dayDifference > 10) {
       alert('Maximum booking duration is 10 days.');
       return;
@@ -65,7 +65,7 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
       return;
     }
 
-    updateSearch(destination, checkIn, checkOut, parseInt(guests, 10) || 1);
+    updateSearch(destination, checkInDate, checkOutDate, parseInt(guests, 10) || 1);
     navigate('/hotel-results');
   };
 
@@ -92,8 +92,8 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
           </select>
           <label htmlFor="departure" className="form-label"></label>
           <DatePicker
-            selected={checkIn}
-            onChange={(date) => setCheckIn(date)}
+            selected={checkInDate}
+            onChange={(date) => setCheckInDate(date)}
             placeholderText="Check-In"
             className="date"
             id="departure"
@@ -102,17 +102,17 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
           />
           <label htmlFor="return" className="form-label"></label>
           <DatePicker
-            selected={checkOut}
-            onChange={(date) => setCheckOut(date)}
+            selected={checkOutDate}
+            onChange={(date) => setCheckOutDate(date)}
             placeholderText="Check-Out"
             className="date"
             id="return"
-            minDate={checkIn}
+            minDate={checkInDate}
             maxDate={
-              checkIn
+              checkInDate
                 ? new Date(
                     Math.min(
-                      new Date(checkIn.getTime() + 10 * 24 * 60 * 60 * 1000).getTime(), // check-in + 10 days
+                      new Date(checkInDate.getTime() + 10 * 24 * 60 * 60 * 1000).getTime(), // check-in + 10 days
                       new Date(new Date().setMonth(new Date().getMonth() + 3)).getTime() // 3 months limit
                     )
                   )
@@ -126,7 +126,7 @@ const HotelSearch = ({ initialDestination, initialCheckIn, initialCheckOut, init
             id="travellers"
             placeholder="Rooms"
             value={guests}
-            onChange={(e) => setGuests(e.target.value)}
+            onChange={(e) => setGuests(Number(e.target.value))}
             min="1"
             max="15"
             required

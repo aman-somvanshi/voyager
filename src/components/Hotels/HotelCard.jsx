@@ -22,7 +22,7 @@ const HotelCard = ({ hotel }) => {
         <div className="hotel-info">
           <h3 className="hotel-name">{hotel.name}</h3>
           <p className="hotel-location">{hotel.location}</p>
-          <p className="hotel-price">Price: ${hotel.price}</p>
+          <p className="hotel-price">Price: ₹{hotel.price} per room</p>
         </div>
         <button className="book-now-button" onClick={handleBookNowClick}>Book Now</button>
       </div>
