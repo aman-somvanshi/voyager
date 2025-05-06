@@ -9,7 +9,8 @@ export const SearchContextProvider = ({ children }) => {
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState(1);
   const [selectedHotelImage, setSelectedHotelImage] = useState();
-  const[roomsAvailable,setRoomsAvailable]=useState();
+  const [roomsAvailable,setRoomsAvailable] = useState();
+  const [hotelId, setHotelId] = useState(null);
 
   const updateSearch = (newDestination, newCheckInDate, newCheckOutDate, newGuests,newRoomAvailable,newHotelImage) => {
     setDestination(newDestination);
@@ -35,7 +36,9 @@ export const SearchContextProvider = ({ children }) => {
         setGuests,
         updateSearch,
         setSelectedHotelImage,
-        setRoomsAvailable
+        setRoomsAvailable,
+        hotelId,
+        setHotelId
       }}
     >
       {children}

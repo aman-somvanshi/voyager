@@ -9,12 +9,11 @@ import { HotelContext } from './HotelContext';
 
 const BookingPage = () => {
   const {user} = useAuth();
-  const { id } = useParams();
   const {hotels} = useContext(HotelContext);
   const location = useLocation();
   const navigate = useNavigate();
   const hotelName = location.state?.hotelName || 'Hotel Details';
-  const { checkInDate, checkOutDate, guests, selectedHotelImage } = useContext(SearchContext);
+  const { checkInDate, checkOutDate, guests, setGuests, selectedHotelImage, hotelId } = useContext(SearchContext);
   const hotelImage = location.state?.hotelImage || selectedHotelImage;
   console.log("Hotel Image:", hotelImage);
   const [checkIn, setCheckIn] = useState(checkInDate || null);
@@ -22,7 +21,7 @@ const BookingPage = () => {
   const [bookingName, setBookingName] = useState(user?.name || '');
   const [bookingEmail, setBookingEmail] = useState(user?.email || '');
 
-  const hotel = hotels.find(h => h.id === id);
+  const hotel = hotels.find(h => h.id === hotelId);
   const numRooms = parseInt(guests);
   const totalPrice = hotel.price * numRooms;
 
@@ -63,7 +62,7 @@ const BookingPage = () => {
     // === Validation End ===
     
     try {
-      const response = await fetch(`http://localhost:3001/hotelBooking/${id}`);
+      const response = await fetch(`http://localhost:3001/hotelBooking/${hotelId}`);
       if (!response.ok) throw new Error("Hotel data not found");
   
       const hotelData = await response.json();

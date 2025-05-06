@@ -6,9 +6,10 @@ import { SearchContext } from '../Hotels/SearchContext'; // Ensure correct path
 
 const HotelCard = ({ hotel }) => {
   const navigate = useNavigate(); // Initialize navigate
-  const { setSelectedHotelImage } = useContext(SearchContext); // Access the setter function
+  const { setSelectedHotelImage, hotelId, setHotelId } = useContext(SearchContext); // Access the setter function
 
   const handleBookNowClick = () => {
+    setHotelId(hotel.id); // Store the hotel ID in the context
     setSelectedHotelImage(hotel.imageUrl); // Store the image URL in the context
     navigate(`/booking/${hotel.id}`, { state: { hotelName: hotel.name, hotelImage: hotel.imageUrl } });
   };
