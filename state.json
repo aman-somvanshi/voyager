@@ -140,7 +140,7 @@
       "city": "Bangalore",
       "price": 180,
       "roomsAvailable": 12,
-      "imageUrl": "/assets/HotelImages/Hotel5.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel4.jpg",
       "location": "MG Road, Bangalore"
     },
     {
@@ -149,7 +149,7 @@
       "city": "Kolkata",
       "price": 200,
       "roomsAvailable": 7,
-      "imageUrl": "/assets/HotelImages/Hotel6.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel5.jpeg",
       "location": "Alipore, Kolkata"
     },
     {
@@ -158,7 +158,7 @@
       "city": "Hyderabad",
       "price": 160,
       "roomsAvailable": 9,
-      "imageUrl": "/assets/HotelImages/Hotel7.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel5.jpg",
       "location": "HITEC City, Hyderabad"
     },
     {
@@ -167,7 +167,7 @@
       "city": "Pune",
       "price": 140,
       "roomsAvailable": 6,
-      "imageUrl": "/assets/HotelImages/Hotel8.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel6.jfif",
       "location": "Senapati Bapat Road, Pune"
     },
     {
@@ -176,7 +176,7 @@
       "city": "Ahmedabad",
       "price": 95,
       "roomsAvailable": 15,
-      "imageUrl": "/assets/HotelImages/Hotel9.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel7.jfif",
       "location": "S.G. Highway, Ahmedabad"
     },
     {
@@ -185,7 +185,7 @@
       "city": "Jaipur",
       "price": 110,
       "roomsAvailable": 11,
-      "imageUrl": "/assets/HotelImages/Hotel10.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel9.jpeg",
       "location": "Tonk Road, Jaipur"
     },
     {
@@ -194,7 +194,7 @@
       "city": "Lucknow",
       "price": 75,
       "roomsAvailable": 13,
-      "imageUrl": "/assets/HotelImages/Hotel11.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel1.jpeg",
       "location": "Hazratganj, Lucknow"
     },
     {
@@ -203,7 +203,7 @@
       "city": "Mumbai",
       "price": 190,
       "roomsAvailable": 4,
-      "imageUrl": "/assets/HotelImages/Hotel12.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel3.jpeg",
       "location": "Santacruz East, Mumbai"
     },
     {
@@ -212,7 +212,7 @@
       "city": "Delhi",
       "price": 220,
       "roomsAvailable": 2,
-      "imageUrl": "/assets/HotelImages/Hotel13.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel9.jpeg",
       "location": "Chanakyapuri, Delhi"
     },
     {
@@ -221,7 +221,7 @@
       "city": "Bangalore",
       "price": 210,
       "roomsAvailable": 10,
-      "imageUrl": "/assets/HotelImages/Hotel14.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel4.jpeg",
       "location": "Residency Road, Bangalore"
     },
     {
@@ -230,7 +230,7 @@
       "city": "Chennai",
       "price": 130,
       "roomsAvailable": 9,
-      "imageUrl": "/assets/HotelImages/Hotel15.jpeg",
+      "imageUrl": "/assets/HotelImages/Hotel5.jpeg",
       "location": "Nungambakkam, Chennai"
     }
   ],

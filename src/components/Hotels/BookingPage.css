@@ -3,6 +3,7 @@
   width: 90%;
   margin: 20px auto;
   gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2); 
 }
 
 .booking-form-left {
@@ -66,7 +67,7 @@
 }
 
 .submit-booking-button {
-  background-color: #5cb85c;
+  background-color: #dc3545;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -77,5 +78,5 @@
 }
 
 .submit-booking-button:hover {
-  background-color: #4cae4c;
+  background-color: #bf2f3d;
 }

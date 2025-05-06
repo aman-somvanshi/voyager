@@ -49,7 +49,11 @@ const HotelResults = () => {
           ))}
         </ul>
       ) : (
-        <p>No hotels available for the selected destination.</p>
+        <ul className="hotel-cards-grid">
+        {hotels.map(hotel => (
+          <HotelCard key={hotel.id} hotel={hotel} />
+        ))}
+      </ul>
       )}
     </>
   );

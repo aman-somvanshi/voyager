@@ -21,9 +21,10 @@ const BookingPage = () => {
   const [bookingName, setBookingName] = useState(user?.name || '');
   const [bookingEmail, setBookingEmail] = useState(user?.email || '');
 
+  const dayDifference = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
   const hotel = hotels.find(h => h.id === hotelId);
   const numRooms = parseInt(guests);
-  const totalPrice = hotel.price * numRooms;
+  const totalPrice = hotel.price * numRooms * dayDifference;
 
   let availableRooms = 0;
 
@@ -49,7 +50,7 @@ const BookingPage = () => {
       return;
     }
 
-    const dayDifference = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+    
     if (dayDifference > 10) {
       alert('Maximum booking duration is 10 days.');
       return;
@@ -103,7 +104,7 @@ const BookingPage = () => {
       }
   
       // PATCH updated bookings
-      await fetch(`http://localhost:3001/hotelBooking/${id}`, {
+      await fetch(`http://localhost:3001/hotelBooking/${hotelId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
