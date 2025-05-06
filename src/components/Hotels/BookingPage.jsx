@@ -213,7 +213,7 @@ const BookingPage = () => {
           : (<p>No image available</p>)}
         </div>
         <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '20px' }}>
-          Total Cost: ₹{totalPrice}
+          Total Cost for {guests} rooms is : ₹{totalPrice}
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@ export const SearchContextProvider = ({ children }) => {
         guests,
         selectedHotelImage, 
         roomsAvailable,
+        hotelId,
         setDestination, // Optionally expose individual setters
         setCheckInDate,
         setCheckOutDate,
@@ -37,7 +38,6 @@ export const SearchContextProvider = ({ children }) => {
         updateSearch,
         setSelectedHotelImage,
         setRoomsAvailable,
-        hotelId,
         setHotelId
       }}
     >
