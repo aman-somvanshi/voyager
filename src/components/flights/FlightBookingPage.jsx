@@ -99,8 +99,8 @@ const FlightBookingPage = () => {
   }, []);
 
   function validateConfirmData() {
-    if (formData.age < 3 || formData.age > 99 || formData.age === '') {
-      window.alert("Age is invalid");
+    if ( formData.age === '') {
+      window.alert("Age can't be empty");
       return false;
     }
     if (formData.gender === '') {
