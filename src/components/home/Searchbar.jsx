@@ -114,7 +114,7 @@ const SearchBar = () => {
           {/* From City Dropdown */}
           <label htmlFor="fromCity" className="form-label"></label>
           <select className="form-control" id="fromCity" value={fromCity} onChange={handleFromCityChange} required>
-            <option value="" disabled selected>From</option>
+            <option value="" disabled >From</option>
             {originCities.map((city, idx) => (
               <option key={idx} value={city}>{city}</option>
             ))}
@@ -122,7 +122,7 @@ const SearchBar = () => {
           {/* To City Dropdown */}
           <label htmlFor="toCity" className="form-label"></label>
           <select className="form-control" id="toCity" value={toCity} onChange={handleToCityChange} required>
-            <option value="" disabled selected>To</option>
+            <option value="" disabled >To</option>
             {destinationCities.map((city, idx) => (
               <option key={idx} value={city}>{city}</option>
             ))}
@@ -149,7 +149,7 @@ const SearchBar = () => {
             />
           <label htmlFor="travellers" className="form-label"></label>
           <select className="form-control" id="travellers" value={numberOfTravellers} onChange={handleTravellersChange} style={{ color: '#6c757d' }} required >
-            <option value="" disabled selected>No of Travellers</option> {/* Placeholder option */}
+            <option value="" disabled >No of Travellers</option> {/* Placeholder option */}
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
