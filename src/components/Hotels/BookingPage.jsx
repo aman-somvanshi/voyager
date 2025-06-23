@@ -63,7 +63,7 @@ const BookingPage = () => {
     // === Validation End ===
     
     try {
-      const response = await fetch(`http://localhost:3001/hotelBooking/${hotelId}`);
+      const response = await fetch(`https://voyager-backend-za5b.onrender.com/hotelBooking/${hotelId}`);
       if (!response.ok) throw new Error("Hotel data not found");
   
       const hotelData = await response.json();
@@ -104,7 +104,7 @@ const BookingPage = () => {
       }
   
       // PATCH updated bookings
-      await fetch(`http://localhost:3001/hotelBooking/${hotelId}`, {
+      await fetch(`https://voyager-backend-za5b.onrender.com/hotelBooking/${hotelId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

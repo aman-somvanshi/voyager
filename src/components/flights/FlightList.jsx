@@ -30,8 +30,8 @@ function FlightList() {
       setError(null);
 
       const apiUrl = returnDate
-        ? 'http://localhost:3000/returnFlightData'
-        : 'http://localhost:3000/flightData';
+        ? 'https://voyager-backend-za5b.onrender.com/returnFlightData'
+        : 'https://voyager-backend-za5b.onrender.com/flightData';
 
       try {
         const response = await fetch(apiUrl);

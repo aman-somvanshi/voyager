@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:3000/users');
+        const response = await fetch('https://voyager-backend-za5b.onrender.com/users');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -85,7 +85,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-        const getUsersResponse = await fetch('http://localhost:3000/users');
+        const getUsersResponse = await fetch('https://voyager-backend-za5b.onrender.com/users');
         if (!getUsersResponse.ok) {
             throw new Error("Failed to fetch existing users");
         }
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
         }
         const nextId = String(existingUsers.length + 1);
 
-        const response = await fetch('http://localhost:3000/users', {
+        const response = await fetch('https://voyager-backend-za5b.onrender.com/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
