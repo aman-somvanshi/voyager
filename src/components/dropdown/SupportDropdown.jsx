@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './SupportDropdown.css'; 
+import './SupportDropDown.css'; 
 
 function SupportDropdown({ items, onItemClick }) {
   return (
