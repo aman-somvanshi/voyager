@@ -2,7 +2,7 @@
     "name": "voyager-backend",
     "version": "1.0.0",
     "scripts": {
-        "start": "node server.js"
+        "start": "npx json-server --watch db.json --port 10000"
     },
     "dependencies": {
         "cors": "^2.8.5",
