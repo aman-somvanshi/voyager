@@ -111,7 +111,12 @@ const FlightBookingPage = () => {
       window.alert("Phone number can't be empty");
       return false;
     }
-    if (formData.phoneNumber.toString().length < 10) { // Assuming a minimum length for phone number
+    if (formData.phoneNumber.toString().length < 10 || formData.phoneNumber.toString().length > 10) { // Assuming a minimum length for phone number
+      window.alert("Phone number is invalid");
+      return false;
+    }
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(formData.phoneNumber)) {
       window.alert("Phone number is invalid");
       return false;
     }
@@ -289,7 +294,7 @@ const FlightBookingPage = () => {
                     Phone Number:
                   </label>
                   <input
-                    type="tel"
+                    type="number"
                     className="form-control"
                     id="phoneNumber"
                     name="phoneNumber"
