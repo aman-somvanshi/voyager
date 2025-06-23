@@ -163,7 +163,7 @@ function NavBar() {
         <a className="navbar-brand" href="/home">
           <img
             id="Voyager-logo"
-            src="src\assets\Voyager_logo.png"
+            src="/assets/Voyager_logo.png"
             alt="Logo"
             draggable="false"
             height="45"
